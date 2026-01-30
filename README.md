@@ -3,3 +3,4 @@ Algonquin Game Core Club Global Game Jam 2026 project
 
 ## Contributors:
  - Malcolm Sutcliffe
+ - Max Lamothe
