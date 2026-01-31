@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cyux5ygw42ol5"]
 
-[ext_resource type="Script" uid="uid://chsg25yg64jut" path="res://menu.gd" id="3_h2yge"]
-[ext_resource type="Script" uid="uid://clla0lrdopf5d" path="res://level_select.gd" id="4_1bvp3"]
+[ext_resource type="Script" path="res://menu.gd" id="3_h2yge"]
+[ext_resource type="Script" path="res://level_select.gd" id="4_1bvp3"]
 
 [node name="Main" type="Node" unique_id=1648551162]
 
