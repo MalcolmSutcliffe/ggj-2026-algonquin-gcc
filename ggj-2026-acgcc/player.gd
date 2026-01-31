@@ -3,7 +3,6 @@ extends CharacterBody2D
 @export var jump_strength = 500
 var screen_size
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	screen_size = get_viewport_rect().size
 	
@@ -15,7 +14,7 @@ func _physics_process(delta: float) -> void:
 		try_jump()
 	
 	move_and_slide()
-	
+
 func apply_gravity(delta: float):
 	velocity += get_gravity() * delta
 
@@ -26,16 +25,12 @@ func try_jump():
 func move_horizontal(delta: float):
 	var direction = 0
 	
-	if Input.is_action_pressed("move_right"):
-		direction += 1
-	if Input.is_action_pressed("move_left"):
-		direction -= 1
+	direction = Input.get_axis("move_left", "move_right")
 	
-	velocity.x = direction*speed*delta
+	velocity.x = direction * speed * delta
 	
-	if direction < 0:
-		$Sprite2D.flip_h = true
-	else:
-		$Sprite2D.flip_h = false
-
-	
+	if direction:
+		if direction < 0:
+			$Sprite2D.flip_h = true
+		else:
+			$Sprite2D.flip_h = false
