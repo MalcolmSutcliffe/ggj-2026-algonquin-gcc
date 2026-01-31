@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cyux5ygw42ol5"]
 
-[ext_resource type="PackedScene" path="res://player.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://gp0idvap58qe" path="res://player.tscn" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://bhhej1yi5xqft" path="res://icon.svg" id="2_0xm2m"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_h2yge"]
