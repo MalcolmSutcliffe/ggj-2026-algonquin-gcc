@@ -7,33 +7,37 @@
 [ext_resource type="PackedScene" uid="uid://crpllc83d04sg" path="res://spike.tscn" id="3_bt44k"]
 [ext_resource type="PackedScene" uid="uid://b157rp60jwtik" path="res://negative_window.tscn" id="5_n46q3"]
 
-[node name="Level1" type="Node2D" unique_id=473524130 node_paths=PackedStringArray("terrain_poly")]
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_h2yge"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ig7tw"]
+size = Vector2(1280, 351.75)
+
+[node name="Level1" type="Node2D" unique_id=473524130]
 script = ExtResource("1_bt44k")
-terrain_poly = NodePath("ProgramaticTerrain/CollisionPolygon2D")
 
-[node name="ProgramaticTerrain" type="StaticBody2D" parent="." unique_id=1614055626]
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1614055626]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ProgramaticTerrain" unique_id=1512809455]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1512809455]
 
-[node name="Floor" type="Area2D" parent="." unique_id=1599674329 groups=["terrain"]]
+[node name="Floor" type="StaticBody2D" parent="." unique_id=1816324558 groups=["terrain"]]
+position = Vector2(0, 218)
+physics_material_override = SubResource("PhysicsMaterial_h2yge")
 script = ExtResource("2_btoec")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=369297733]
+position = Vector2(640, 544.125)
+shape = SubResource("RectangleShape2D_ig7tw")
+
 [node name="Sprite2D" type="Sprite2D" parent="Floor" unique_id=1366653550]
-position = Vector2(640, 553.105)
+position = Vector2(640, 544)
 scale = Vector2(10, 2.75)
 texture = ExtResource("1_vn7o3")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Floor" unique_id=464241268]
-visible = false
-polygon = PackedVector2Array(0, 380, 0, 720, 1280, 720, 1280, 380)
-
-[node name="Window" parent="." unique_id=1494559892 instance=ExtResource("2_jirdo")]
-
-[node name="NegativeWindow" parent="." unique_id=755408403 instance=ExtResource("5_n46q3")]
-offset_left = 797.0
-offset_top = 116.0
-offset_right = 1161.0
-offset_bottom = 360.0
+[node name="Window" parent="." unique_id=1140407647 instance=ExtResource("2_jirdo")]
+offset_left = 616.0
+offset_top = 105.0
+offset_right = 980.0
+offset_bottom = 349.0
 
 [node name="Spike" parent="." unique_id=1162273504 instance=ExtResource("3_bt44k")]
 position = Vector2(693, 553)
@@ -50,3 +54,5 @@ scale = Vector2(2, 2)
 [node name="Spike4" parent="." unique_id=258453386 instance=ExtResource("3_bt44k")]
 position = Vector2(885, 553)
 scale = Vector2(2, 2)
+
+[node name="NegativeWindow" parent="." unique_id=1494559892 instance=ExtResource("5_n46q3")]

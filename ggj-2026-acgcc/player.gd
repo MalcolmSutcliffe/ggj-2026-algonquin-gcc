@@ -5,6 +5,7 @@ extends CharacterBody2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	get_parent().move_child(self, -1)
 	pass
 	
 func _physics_process(delta: float) -> void:
