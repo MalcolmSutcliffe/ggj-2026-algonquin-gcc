@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://yp5wj0qi5iwf"]
 
 [ext_resource type="Script" uid="uid://ccakqd340a13c" path="res://window_manager.gd" id="1_22j4m"]
+[ext_resource type="Script" uid="uid://g8rcyjxeupny" path="res://detectMouse.gd" id="2_dkob1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_22j4m"]
+resource_local_to_scene = true
 size = Vector2(146, 91)
 
-[node name="Control" type="Control" unique_id=1140407647]
+[node name="Window" type="Control" unique_id=1140407647]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,7 +16,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="WindowBase" type="Control" parent="." unique_id=1926133308 node_paths=PackedStringArray("HitBox")]
+[node name="WindowBase" type="Control" parent="." unique_id=1926133308 node_paths=PackedStringArray("HitBox", "moverTop", "resizerTop", "resizerLeft", "resizerRight", "resizerBottom", "resizerBottomLeft", "resizerBottomRight", "resizerTopLeft", "resizerTopRight")]
 anchors_preset = 0
 offset_left = 532.0
 offset_top = 329.0
@@ -22,6 +24,45 @@ offset_right = 678.0
 offset_bottom = 419.0
 script = ExtResource("1_22j4m")
 HitBox = NodePath("StaticBody2D/CollisionShape2D")
+moverTop = NodePath("Mover")
+resizerTop = NodePath("ResizerTop")
+resizerLeft = NodePath("ResizerLeft")
+resizerRight = NodePath("ResizerRight")
+resizerBottom = NodePath("ResizerBottom")
+resizerBottomLeft = NodePath("ResizerBottomLeft")
+resizerBottomRight = NodePath("ResizerBottomRight")
+resizerTopLeft = NodePath("ResizerTopLeft")
+resizerTopRight = NodePath("ResizerTopRight")
+
+[node name="Panel" type="Panel" parent="WindowBase" unique_id=1714372719]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Mover" type="Control" parent="WindowBase" unique_id=311977752]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 2.0
+offset_bottom = 14.0
+grow_horizontal = 2
+mouse_default_cursor_shape = 6
+script = ExtResource("2_dkob1")
+
+[node name="ResizerTop" type="Control" parent="WindowBase" unique_id=1756312116]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 5.0
+offset_top = -11.0
+offset_right = -4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+mouse_default_cursor_shape = 9
+script = ExtResource("2_dkob1")
 
 [node name="ResizerLeft" type="Control" parent="WindowBase" unique_id=1875489332]
 layout_mode = 1
@@ -33,6 +74,7 @@ offset_right = 6.0
 offset_bottom = -4.0
 grow_vertical = 2
 mouse_default_cursor_shape = 10
+script = ExtResource("2_dkob1")
 
 [node name="ResizerRight" type="Control" parent="WindowBase" unique_id=374381187]
 layout_mode = 1
@@ -47,17 +89,7 @@ offset_bottom = -4.0
 grow_horizontal = 0
 grow_vertical = 2
 mouse_default_cursor_shape = 10
-
-[node name="ResizerTop" type="Control" parent="WindowBase" unique_id=1756312116]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = 5.0
-offset_top = -11.0
-offset_right = -4.0
-offset_bottom = 10.0
-grow_horizontal = 2
-mouse_default_cursor_shape = 6
+script = ExtResource("2_dkob1")
 
 [node name="ResizerBottom" type="Control" parent="WindowBase" unique_id=1041928627]
 layout_mode = 1
@@ -72,6 +104,7 @@ offset_bottom = 7.0
 grow_horizontal = 2
 grow_vertical = 0
 mouse_default_cursor_shape = 9
+script = ExtResource("2_dkob1")
 
 [node name="ResizerBottomLeft" type="Control" parent="WindowBase" unique_id=186326228]
 layout_mode = 1
@@ -84,6 +117,30 @@ offset_right = 3.0
 offset_bottom = 6.0
 grow_vertical = 0
 mouse_default_cursor_shape = 11
+script = ExtResource("2_dkob1")
+
+[node name="ResizerTopLeft" type="Control" parent="WindowBase" unique_id=1730890412]
+layout_mode = 1
+anchors_preset = 0
+offset_left = -11.0
+offset_top = -10.0
+offset_right = 2.0
+offset_bottom = 2.0
+mouse_default_cursor_shape = 12
+script = ExtResource("2_dkob1")
+
+[node name="ResizerTopRight" type="Control" parent="WindowBase" unique_id=1162596906]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -2.0
+offset_top = -12.0
+offset_right = 11.0
+offset_bottom = 2.0
+grow_horizontal = 0
+mouse_default_cursor_shape = 11
+script = ExtResource("2_dkob1")
 
 [node name="ResizerBottomRight" type="Control" parent="WindowBase" unique_id=1962939054]
 layout_mode = 1
@@ -99,6 +156,7 @@ offset_bottom = 6.0
 grow_horizontal = 0
 grow_vertical = 0
 mouse_default_cursor_shape = 12
+script = ExtResource("2_dkob1")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="WindowBase" unique_id=683165134]
 

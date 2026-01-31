@@ -10,46 +10,96 @@ var initialSize : Vector2
 
 @export var HitBox : CollisionShape2D
 @export var CanBeResized := true
-@export var GrabThreshold := 12
-@export var ResizeThreshold := 6
+
+@export var moverTop : detectMouse
+@export var resizerTop : detectMouse
+@export var resizerLeft : detectMouse
+@export var resizerRight : detectMouse
+@export var resizerBottom : detectMouse
+@export var resizerBottomLeft : detectMouse
+@export var resizerBottomRight : detectMouse
+@export var resizerTopLeft : detectMouse
+@export var resizerTopRight : detectMouse
+
+func _ready():
+	pass
 
 func _input(event):
 	# make sure event is mouse event
 	if not event is InputEventMouse:
 		return
+	
 	if Input.is_action_just_pressed("LeftMouseDown"):
-		var rect = get_global_rect()
-		var localMousePos = event.position - get_global_position()
-		if abs(localMousePos.y) < GrabThreshold:
+		if moverTop.get_is_mouse_over():
 			start = event.position
 			initialPosition = get_global_position()
 			isMoving = true
-		else:
-			if abs(localMousePos.x - rect.size.x) < ResizeThreshold:
-				start.x = event.position.x
-				initialSize.x = get_size().x
-				resizeX = true
-				isResizing = true
+		
+		elif resizerTop.get_is_mouse_over():
+			start.y = event.position.y
+			initialPosition.y = get_global_position().y
+			initialSize.y = get_size().y
+			isResizing = true
+			resizeY = true
+		
+		elif resizerRight.get_is_mouse_over():
+			start.x = event.position.x
+			initialSize.x = get_size().x
+			resizeX = true
+			isResizing = true
 			
-			if abs(localMousePos.y - rect.size.y) < ResizeThreshold:
-				start.y = event.position.y
-				initialSize.y = get_size().y
-				resizeY = true
-				isResizing = true
+		elif resizerLeft.get_is_mouse_over():
+			start.x = event.position.x
+			initialPosition.x = get_global_position().x
+			initialSize.x = get_size().x
+			isResizing = true
+			resizeX = true
 			
-			if localMousePos.x < ResizeThreshold &&  localMousePos.x > -ResizeThreshold:
-				start.x = event.position.x
-				initialPosition.x = get_global_position().x
-				initialSize.x = get_size().x
-				isResizing = true
-				resizeX = true
-				
-			if localMousePos.y < ResizeThreshold &&  localMousePos.y > -ResizeThreshold:
-				start.y = event.position.y
-				initialPosition.y = get_global_position().y
-				initialSize.y = get_size().y
-				isResizing = true
-				resizeY = true
+		elif resizerBottom.get_is_mouse_over():
+			start.y = event.position.y
+			initialSize.y = get_size().y
+			resizeY = true
+			isResizing = true
+			
+		elif resizerBottomRight.get_is_mouse_over():
+			start.x = event.position.x
+			start.y = event.position.y
+			initialSize.x = get_size().x
+			initialSize.y = get_size().y
+			isResizing = true
+			resizeY = true
+			resizeX = true
+			
+		elif resizerBottomLeft.get_is_mouse_over():
+			start.x = event.position.x
+			start.y = event.position.y
+			initialPosition.x = get_global_position().x
+			initialSize.x = get_size().x
+			initialSize.y = get_size().y
+			isResizing = true
+			resizeY = true
+			resizeX = true
+		
+		elif resizerTopLeft.get_is_mouse_over():
+			start.x = event.position.x
+			start.y = event.position.y
+			initialPosition.x = get_global_position().x
+			initialPosition.y = get_global_position().y
+			initialSize.x = get_size().x
+			initialSize.y = get_size().y
+			isResizing = true
+			resizeY = true
+			resizeX = true
+		
+		elif resizerTopRight.get_is_mouse_over():
+			start.x = event.position.x
+			start.y = event.position.y
+			initialPosition.y = get_global_position().y
+			initialSize.x = get_size().x
+			initialSize.y = get_size().y
+			isResizing = true
+			resizeY = true
+			resizeX = true
 		
 	if Input.is_action_pressed("LeftMouseDown"):
 		if isMoving:
@@ -73,8 +123,8 @@ func _input(event):
 				set_position(Vector2(get_position().x, initialPosition.y - (newHeight - initialSize.y)))
 			
 			set_size(Vector2(newWidith, newHeight))
-			HitBox.shape.size = Vector2(newWidith, newHeight)
 			var rect = get_global_rect()
+			HitBox.shape.size = Vector2(newWidith, newHeight)
 			HitBox.position = rect.size/2
 			
 		

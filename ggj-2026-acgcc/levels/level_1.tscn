@@ -22,4 +22,6 @@ position = Vector2(640, 544)
 scale = Vector2(10, 2.75)
 texture = ExtResource("1_vn7o3")
 
-[node name="Control" parent="." unique_id=1140407647 instance=ExtResource("2_jirdo")]
+[node name="Window" parent="." unique_id=1140407647 instance=ExtResource("2_jirdo")]
+
+[node name="Window2" parent="." unique_id=2077473668 instance=ExtResource("2_jirdo")]
