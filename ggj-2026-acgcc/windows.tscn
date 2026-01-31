@@ -9,16 +9,8 @@
 resource_local_to_scene = true
 size = Vector2(363, 242.5)
 
-[node name="Window" type="Control" unique_id=1140407647]
+[node name="Window" type="Control" unique_id=1494559892 node_paths=PackedStringArray("HitBox", "moverTop", "resizerTop", "resizerLeft", "resizerRight", "resizerBottom", "resizerBottomLeft", "resizerBottomRight", "resizerTopLeft", "resizerTopRight")]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="WindowBase" type="Control" parent="." unique_id=1926133308 node_paths=PackedStringArray("HitBox", "moverTop", "resizerTop", "resizerLeft", "resizerRight", "resizerBottom", "resizerBottomLeft", "resizerBottomRight", "resizerTopLeft", "resizerTopRight")]
 anchors_preset = 0
 offset_left = 384.0
 offset_top = 329.0
@@ -38,7 +30,7 @@ resizerBottomRight = NodePath("ResizerBottomRight")
 resizerTopLeft = NodePath("ResizerTopLeft")
 resizerTopRight = NodePath("ResizerTopRight")
 
-[node name="NinePatchRect" type="NinePatchRect" parent="WindowBase" unique_id=203735146]
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1138651816]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -54,7 +46,7 @@ patch_margin_bottom = 12
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 
-[node name="Mover" type="Control" parent="WindowBase" unique_id=311977752]
+[node name="Mover" type="Control" parent="." unique_id=968527687]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -66,7 +58,7 @@ grow_horizontal = 2
 mouse_default_cursor_shape = 6
 script = ExtResource("2_dkob1")
 
-[node name="ResizerTop" type="Control" parent="WindowBase" unique_id=1756312116]
+[node name="ResizerTop" type="Control" parent="." unique_id=576920483]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -78,7 +70,7 @@ grow_horizontal = 2
 mouse_default_cursor_shape = 9
 script = ExtResource("2_dkob1")
 
-[node name="ResizerLeft" type="Control" parent="WindowBase" unique_id=1875489332]
+[node name="ResizerLeft" type="Control" parent="." unique_id=1714306963]
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
@@ -90,7 +82,7 @@ grow_vertical = 2
 mouse_default_cursor_shape = 10
 script = ExtResource("2_dkob1")
 
-[node name="ResizerRight" type="Control" parent="WindowBase" unique_id=374381187]
+[node name="ResizerRight" type="Control" parent="." unique_id=93605939]
 layout_mode = 1
 anchors_preset = 11
 anchor_left = 1.0
@@ -105,7 +97,7 @@ grow_vertical = 2
 mouse_default_cursor_shape = 10
 script = ExtResource("2_dkob1")
 
-[node name="ResizerBottom" type="Control" parent="WindowBase" unique_id=1041928627]
+[node name="ResizerBottom" type="Control" parent="." unique_id=732518892]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -120,7 +112,7 @@ grow_vertical = 0
 mouse_default_cursor_shape = 9
 script = ExtResource("2_dkob1")
 
-[node name="ResizerBottomLeft" type="Control" parent="WindowBase" unique_id=186326228]
+[node name="ResizerBottomLeft" type="Control" parent="." unique_id=2138036625]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -133,7 +125,7 @@ grow_vertical = 0
 mouse_default_cursor_shape = 11
 script = ExtResource("2_dkob1")
 
-[node name="ResizerTopLeft" type="Control" parent="WindowBase" unique_id=1730890412]
+[node name="ResizerTopLeft" type="Control" parent="." unique_id=397846831]
 layout_mode = 1
 anchors_preset = 0
 offset_left = -7.0
@@ -143,7 +135,7 @@ offset_bottom = 13.0
 mouse_default_cursor_shape = 12
 script = ExtResource("2_dkob1")
 
-[node name="ResizerTopRight" type="Control" parent="WindowBase" unique_id=1162596906]
+[node name="ResizerTopRight" type="Control" parent="." unique_id=1922962569]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -156,7 +148,7 @@ grow_horizontal = 0
 mouse_default_cursor_shape = 11
 script = ExtResource("2_dkob1")
 
-[node name="ResizerBottomRight" type="Control" parent="WindowBase" unique_id=1962939054]
+[node name="ResizerBottomRight" type="Control" parent="." unique_id=1355157382]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -172,7 +164,7 @@ grow_vertical = 0
 mouse_default_cursor_shape = 12
 script = ExtResource("2_dkob1")
 
-[node name="CloseButton" type="Button" parent="WindowBase" unique_id=423754731]
+[node name="CloseButton" type="Button" parent="." unique_id=1698947771]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -189,10 +181,10 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="StaticBody2D" type="StaticBody2D" parent="WindowBase" unique_id=683165134]
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=183385686]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WindowBase/StaticBody2D" unique_id=1748224992]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=598871011]
 position = Vector2(181.5, 121.75)
 shape = SubResource("RectangleShape2D_22j4m")
 
-[connection signal="pressed" from="WindowBase/CloseButton" to="WindowBase" method="_on_close_button_pressed"]
+[connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]

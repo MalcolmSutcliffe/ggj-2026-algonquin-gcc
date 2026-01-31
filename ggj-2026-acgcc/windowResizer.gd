@@ -39,7 +39,7 @@ func _on_mouse_exited():
 	mouse_is_over = false
 
 func send_to_front():
-	get_parent().get_parent().move_child(get_parent(), -1)
+	get_parent().move_child(self, -1)
 
 func _input(event):
 	# make sure event is mouse event
