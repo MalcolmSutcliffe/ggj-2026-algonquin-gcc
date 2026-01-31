@@ -1,6 +1,6 @@
 extends CharacterBody2D
-@export var speed = 500
-@export var jump_strength = 80
+@export var speed = 10000
+@export var jump_strength = 500
 var screen_size
 
 # Called when the node enters the scene tree for the first time.
@@ -14,14 +14,14 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump"):
 		try_jump()
 	
-	position += velocity
-	position = position.clamp(Vector2.ZERO, screen_size)
+	move_and_slide()
 	
 func apply_gravity(delta: float):
 	velocity += get_gravity() * delta
 
 func try_jump():
-	velocity.y = -jump_strength
+	if (is_on_floor()):
+		velocity.y = -jump_strength
 
 func move_horizontal(delta: float):
 	var direction = 0
@@ -37,6 +37,5 @@ func move_horizontal(delta: float):
 		$Sprite2D.flip_h = true
 	else:
 		$Sprite2D.flip_h = false
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 
 	
