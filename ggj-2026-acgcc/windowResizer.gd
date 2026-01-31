@@ -9,6 +9,10 @@ var resizeY : bool
 var initialSize : Vector2
 
 @export var HitBox : CollisionShape2D
+
+@export var minimumSizeY : int
+@export var minimumSizeX : int
+
 @export var CanBeResized := true
 
 @export var moverTop : detectMouse
@@ -21,8 +25,21 @@ var initialSize : Vector2
 @export var resizerTopLeft : detectMouse
 @export var resizerTopRight : detectMouse
 
+var mouse_is_over : bool = false
+
 func _ready():
-	pass
+	connect("mouse_entered", Callable(self, "_on_mouse_entered"))
+	connect("mouse_exited", Callable(self, "_on_mouse_exited"))
+	set_size(Vector2(minimumSizeX, minimumSizeY))
+
+func _on_mouse_entered():
+	mouse_is_over = true
+
+func _on_mouse_exited():
+	mouse_is_over = false
+
+func send_to_front():
+	get_parent().get_parent().move_child(get_parent(), -1)
 
 func _input(event):
 	# make sure event is mouse event
@@ -30,6 +47,10 @@ func _input(event):
 		return
 	
 	if Input.is_action_just_pressed("LeftMouseDown"):
+		# move to front
+		if (mouse_is_over):
+			send_to_front()
+		
 		if moverTop.get_is_mouse_over():
 			start = event.position
 			initialPosition = get_global_position()
@@ -104,27 +125,33 @@ func _input(event):
 	if Input.is_action_pressed("LeftMouseDown"):
 		if isMoving:
 			set_position(initialPosition + (event.position - start))
+			send_to_front()
 		
 		if isResizing:
-			var newWidith = get_size().x
+			var newWidth = get_size().x
 			var newHeight = get_size().y
 			
 			if resizeX:
-				newWidith = initialSize.x - (start.x - event.position.x)
+				newWidth = initialSize.x - (start.x - event.position.x)
+				newWidth = max(minimumSizeX, newWidth)
 			if resizeY:
 				newHeight = initialSize.y - (start.y - event.position.y)
+				newHeight = max(minimumSizeY, newHeight)
 				
 			if initialPosition.x != 0:
-				newWidith = initialSize.x + (start.x - event.position.x)
-				set_position(Vector2(initialPosition.x - (newWidith - initialSize.x), get_position().y))
+				newWidth = initialSize.x + (start.x - event.position.x)
+				newWidth = max(minimumSizeX, newWidth)
+				set_position(Vector2(initialPosition.x - (newWidth - initialSize.x), get_position().y))
 			
 			if initialPosition.y != 0:
 				newHeight = initialSize.y + (start.y - event.position.y)
+				newHeight = max(minimumSizeY, newHeight)
 				set_position(Vector2(get_position().x, initialPosition.y - (newHeight - initialSize.y)))
 			
-			set_size(Vector2(newWidith, newHeight))
+			send_to_front()
+			set_size(Vector2(newWidth, newHeight))
 			var rect = get_global_rect()
-			HitBox.shape.size = Vector2(newWidith, newHeight)
+			HitBox.shape.size = Vector2(newWidth, newHeight)
 			HitBox.position = rect.size/2
 			
 		
@@ -134,3 +161,7 @@ func _input(event):
 		resizeX = false
 		resizeY = false
 		isResizing = false
+
+
+func _on_close_button_pressed() -> void:
+	self.queue_free()
