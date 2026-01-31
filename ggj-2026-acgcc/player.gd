@@ -35,4 +35,5 @@ func move_horizontal(delta: float):
 	elif direction > 0:
 		$Sprite2D.flip_h = false
 
-	
+func die():
+	get_parent().respawn_player()

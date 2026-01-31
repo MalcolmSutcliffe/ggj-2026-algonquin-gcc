@@ -1,30 +1,12 @@
 [gd_scene format=3 uid="uid://di3uh3a84fwg6"]
 
 [ext_resource type="Script" uid="uid://b5it2a8vwxrj1" path="res://levels/level.gd" id="1_bt44k"]
-[ext_resource type="Texture2D" uid="uid://bhhej1yi5xqft" path="res://icon.svg" id="1_vn7o3"]
 [ext_resource type="PackedScene" uid="uid://yp5wj0qi5iwf" path="res://windows.tscn" id="2_jirdo"]
 [ext_resource type="PackedScene" uid="uid://crpllc83d04sg" path="res://spike.tscn" id="3_bt44k"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_h2yge"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ig7tw"]
-size = Vector2(1280, 351.75)
-
 [node name="Level1" type="Node2D" unique_id=473524130]
 script = ExtResource("1_bt44k")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1816324558]
-position = Vector2(0, 218)
-physics_material_override = SubResource("PhysicsMaterial_h2yge")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=369297733]
-position = Vector2(640, 544.125)
-shape = SubResource("RectangleShape2D_ig7tw")
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1366653550]
-position = Vector2(640, 544)
-scale = Vector2(10, 2.75)
-texture = ExtResource("1_vn7o3")
+spawnpoint = null
 
 [node name="Window" parent="." unique_id=1140407647 instance=ExtResource("2_jirdo")]
 offset_left = 616.0
