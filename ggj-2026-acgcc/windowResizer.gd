@@ -33,6 +33,7 @@ func _ready():
 	connect("mouse_entered", Callable(self, "_on_mouse_entered"))
 	connect("mouse_exited", Callable(self, "_on_mouse_exited"))
 	set_size(Vector2(minimumSizeX, minimumSizeY))
+	update_position()
 
 func _on_mouse_entered():
 	mouse_is_over = true
@@ -41,6 +42,13 @@ func _on_mouse_exited():
 	mouse_is_over = false
 
 func update_position():
+	var rect = get_global_rect()
+	var height = get_size().y
+	var width = get_size().x
+	HitBox.polygon = [Vector2(rect.position.x,rect.position.y),
+				Vector2(rect.position.x, rect.position.y + height),
+				Vector2(rect.position.x+width, rect.position.y + height),
+				Vector2(rect.position.x+width,rect.position.y)]
 	get_parent().move_child(self, -2)
 	get_parent().make_terrain()
 
@@ -128,13 +136,6 @@ func _input(event):
 	if Input.is_action_pressed("LeftMouseDown"):
 		if isMoving:
 			set_position(initialPosition + (event.position - start))
-			var rect = get_global_rect()
-			var height = get_size().y
-			var width = get_size().x
-			HitBox.polygon = [Vector2(rect.position.x,rect.position.y),
-						Vector2(rect.position.x, rect.position.y + height),
-						Vector2(rect.position.x+width, rect.position.y + height),
-						Vector2(rect.position.x+width,rect.position.y)]
 			update_position()
 		
 		if isResizing:
@@ -159,11 +160,6 @@ func _input(event):
 				set_position(Vector2(get_position().x, initialPosition.y - (newHeight - initialSize.y)))
 			
 			set_size(Vector2(newWidth, newHeight))
-			var rect = get_global_rect()
-			HitBox.polygon = [Vector2(rect.position.x,rect.position.y),
-						Vector2(rect.position.x, rect.position.y + newHeight),
-						Vector2(rect.position.x+newWidth, rect.position.y + newHeight),
-						Vector2(rect.position.x+newWidth,rect.position.y)]
 			update_position()
 		
 	if Input.is_action_just_released("LeftMouseDown"):
@@ -175,7 +171,10 @@ func _input(event):
 
 
 func _on_close_button_pressed() -> void:
+	set_size(Vector2.ZERO)
+	update_position()
 	self.queue_free()
+	
 
 func get_polygon():
 	return HitBox.polygon
