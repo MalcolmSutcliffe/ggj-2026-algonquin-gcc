@@ -1,0 +1,115 @@
+[gd_scene format=3 uid="uid://yp5wj0qi5iwf"]
+
+[ext_resource type="Script" uid="uid://ccakqd340a13c" path="res://window_manager.gd" id="1_22j4m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_22j4m"]
+size = Vector2(146, 91)
+
+[node name="Control" type="Control" unique_id=1140407647]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="WindowBase" type="Control" parent="." unique_id=1926133308 node_paths=PackedStringArray("HitBox")]
+anchors_preset = 0
+offset_left = 532.0
+offset_top = 329.0
+offset_right = 678.0
+offset_bottom = 419.0
+script = ExtResource("1_22j4m")
+HitBox = NodePath("StaticBody2D/CollisionShape2D")
+
+[node name="Panel" type="Panel" parent="WindowBase" unique_id=1679099295]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ResizerLeft" type="Control" parent="WindowBase" unique_id=1875489332]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = -6.0
+offset_top = 4.0
+offset_right = 6.0
+offset_bottom = -4.0
+grow_vertical = 2
+mouse_default_cursor_shape = 10
+
+[node name="ResizerRight" type="Control" parent="WindowBase" unique_id=374381187]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -6.0
+offset_top = 4.0
+offset_right = 6.0
+offset_bottom = -4.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_default_cursor_shape = 10
+
+[node name="ResizerTop" type="Control" parent="WindowBase" unique_id=1756312116]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 5.0
+offset_top = -11.0
+offset_right = -4.0
+offset_bottom = 10.0
+grow_horizontal = 2
+mouse_default_cursor_shape = 6
+
+[node name="ResizerBottom" type="Control" parent="WindowBase" unique_id=1041928627]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = -4.0
+offset_right = -4.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_default_cursor_shape = 9
+
+[node name="ResizerBottomLeft" type="Control" parent="WindowBase" unique_id=186326228]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -7.0
+offset_top = -3.0
+offset_right = 3.0
+offset_bottom = 6.0
+grow_vertical = 0
+mouse_default_cursor_shape = 11
+
+[node name="ResizerBottomRight" type="Control" parent="WindowBase" unique_id=1962939054]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_top = -3.0
+offset_right = 6.0
+offset_bottom = 6.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_default_cursor_shape = 12
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WindowBase" unique_id=683165134]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WindowBase/StaticBody2D" unique_id=1748224992]
+position = Vector2(73, 46)
+shape = SubResource("RectangleShape2D_22j4m")
