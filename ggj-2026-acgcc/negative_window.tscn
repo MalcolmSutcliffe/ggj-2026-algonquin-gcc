@@ -1,18 +1,19 @@
-[gd_scene format=3 uid="uid://yp5wj0qi5iwf"]
+[gd_scene format=3 uid="uid://b157rp60jwtik"]
 
-[ext_resource type="Script" uid="uid://ccakqd340a13c" path="res://windowResizer.gd" id="1_22j4m"]
-[ext_resource type="Texture2D" uid="uid://ct08owxnyryol" path="res://Assets/windowimage_src.png" id="2_13e0b"]
-[ext_resource type="Script" uid="uid://g8rcyjxeupny" path="res://detectMouse.gd" id="2_dkob1"]
-[ext_resource type="Texture2D" uid="uid://c81atj4a0yc3x" path="res://Assets/close_button.png" id="4_pxnrm"]
+[ext_resource type="Script" uid="uid://ccakqd340a13c" path="res://windowResizer.gd" id="1_ctkpc"]
+[ext_resource type="Texture2D" uid="uid://bvy6oufsr434" path="res://Assets/windowimage_inverted_src.png" id="2_ctkpc"]
+[ext_resource type="Script" uid="uid://g8rcyjxeupny" path="res://detectMouse.gd" id="3_tk8mp"]
+[ext_resource type="Texture2D" uid="uid://c81atj4a0yc3x" path="res://Assets/close_button.png" id="4_h2k2t"]
 
-[node name="Window" type="Control" unique_id=1494559892 node_paths=PackedStringArray("HitBox", "moverTop", "resizerTop", "resizerLeft", "resizerRight", "resizerBottom", "resizerBottomLeft", "resizerBottomRight", "resizerTopLeft", "resizerTopRight") groups=["terrain"]]
+[node name="NegativeWindow" type="Control" unique_id=1494559892 node_paths=PackedStringArray("HitBox", "moverTop", "resizerTop", "resizerLeft", "resizerRight", "resizerBottom", "resizerBottomLeft", "resizerBottomRight", "resizerTopLeft", "resizerTopRight") groups=["negative", "terrain"]]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 384.0
 offset_top = 329.0
 offset_right = 748.0
 offset_bottom = 573.0
-script = ExtResource("1_22j4m")
+script = ExtResource("1_ctkpc")
+isNegative = true
 HitBox = NodePath("Area2D/CollisionPolygon2D")
 minimumSizeY = 200
 minimumSizeX = 450
@@ -33,7 +34,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_13e0b")
+texture = ExtResource("2_ctkpc")
 region_rect = Rect2(0, 0, 953, 1037)
 patch_margin_left = 60
 patch_margin_top = 78
@@ -52,7 +53,7 @@ offset_right = -206.0
 offset_bottom = 71.0
 grow_horizontal = 2
 mouse_default_cursor_shape = 6
-script = ExtResource("2_dkob1")
+script = ExtResource("3_tk8mp")
 
 [node name="ResizerTop" type="Control" parent="." unique_id=576920483]
 layout_mode = 1
@@ -64,7 +65,7 @@ offset_right = -4.0
 offset_bottom = 6.0
 grow_horizontal = 2
 mouse_default_cursor_shape = 9
-script = ExtResource("2_dkob1")
+script = ExtResource("3_tk8mp")
 
 [node name="ResizerLeft" type="Control" parent="." unique_id=1714306963]
 layout_mode = 1
@@ -76,7 +77,7 @@ offset_right = 6.0
 offset_bottom = -4.0
 grow_vertical = 2
 mouse_default_cursor_shape = 10
-script = ExtResource("2_dkob1")
+script = ExtResource("3_tk8mp")
 
 [node name="ResizerRight" type="Control" parent="." unique_id=93605939]
 layout_mode = 1
@@ -91,7 +92,7 @@ offset_bottom = -4.0
 grow_horizontal = 0
 grow_vertical = 2
 mouse_default_cursor_shape = 10
-script = ExtResource("2_dkob1")
+script = ExtResource("3_tk8mp")
 
 [node name="ResizerBottom" type="Control" parent="." unique_id=732518892]
 layout_mode = 1
@@ -106,7 +107,7 @@ offset_bottom = 7.0
 grow_horizontal = 2
 grow_vertical = 0
 mouse_default_cursor_shape = 9
-script = ExtResource("2_dkob1")
+script = ExtResource("3_tk8mp")
 
 [node name="ResizerBottomLeft" type="Control" parent="." unique_id=2138036625]
 layout_mode = 1
@@ -119,7 +120,7 @@ offset_right = 9.0
 offset_bottom = 6.0
 grow_vertical = 0
 mouse_default_cursor_shape = 11
-script = ExtResource("2_dkob1")
+script = ExtResource("3_tk8mp")
 
 [node name="ResizerTopLeft" type="Control" parent="." unique_id=397846831]
 layout_mode = 1
@@ -129,7 +130,7 @@ offset_top = -6.0
 offset_right = 12.0
 offset_bottom = 13.0
 mouse_default_cursor_shape = 12
-script = ExtResource("2_dkob1")
+script = ExtResource("3_tk8mp")
 
 [node name="ResizerTopRight" type="Control" parent="." unique_id=1922962569]
 layout_mode = 1
@@ -142,7 +143,7 @@ offset_right = 5.0
 offset_bottom = 13.0
 grow_horizontal = 0
 mouse_default_cursor_shape = 11
-script = ExtResource("2_dkob1")
+script = ExtResource("3_tk8mp")
 
 [node name="ResizerBottomRight" type="Control" parent="." unique_id=1355157382]
 layout_mode = 1
@@ -158,7 +159,7 @@ offset_bottom = 6.0
 grow_horizontal = 0
 grow_vertical = 0
 mouse_default_cursor_shape = 12
-script = ExtResource("2_dkob1")
+script = ExtResource("3_tk8mp")
 
 [node name="CloseButton" type="Button" parent="." unique_id=1698947771]
 layout_mode = 1
@@ -172,15 +173,15 @@ offset_bottom = 75.0
 grow_horizontal = 0
 mouse_default_cursor_shape = 2
 keep_pressed_outside = true
-icon = ExtResource("4_pxnrm")
+icon = ExtResource("4_h2k2t")
 flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="Area2D" type="Area2D" parent="." unique_id=468668808]
+[node name="Area2D" type="Area2D" parent="." unique_id=2024772528]
 visible = false
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=328884527]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=979417874]
 polygon = PackedVector2Array(0, 0, 0, 200, 450, 200, 450, 0)
 
 [connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]
