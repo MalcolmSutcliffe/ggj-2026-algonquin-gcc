@@ -30,7 +30,6 @@ func _process(_delta: float) -> void:
 	pass
 
 func set_terrain(new_poly):
-	print(new_poly)
 	for innocent_child in $ProgramaticTerrain.get_children():
 		innocent_child.queue_free()
 	for poly in new_poly:

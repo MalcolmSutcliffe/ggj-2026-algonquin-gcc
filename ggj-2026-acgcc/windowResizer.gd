@@ -40,8 +40,9 @@ func _on_mouse_entered():
 func _on_mouse_exited():
 	mouse_is_over = false
 
-func send_to_front():
+func update_position():
 	get_parent().move_child(self, -2)
+	get_parent().make_terrain()
 
 func _input(event):
 	# make sure event is mouse event
@@ -51,7 +52,7 @@ func _input(event):
 	if Input.is_action_just_pressed("LeftMouseDown"):
 		# move to front
 		if (mouse_is_over):
-			send_to_front()
+			update_position()
 		
 		if moverTop.get_is_mouse_over():
 			start = event.position
@@ -127,7 +128,6 @@ func _input(event):
 	if Input.is_action_pressed("LeftMouseDown"):
 		if isMoving:
 			set_position(initialPosition + (event.position - start))
-			send_to_front()
 			var rect = get_global_rect()
 			var height = get_size().y
 			var width = get_size().x
@@ -135,7 +135,7 @@ func _input(event):
 						Vector2(rect.position.x, rect.position.y + height),
 						Vector2(rect.position.x+width, rect.position.y + height),
 						Vector2(rect.position.x+width,rect.position.y)]
-			get_parent().make_terrain()
+			update_position()
 		
 		if isResizing:
 			var newWidth = get_size().x
@@ -158,14 +158,13 @@ func _input(event):
 				newHeight = max(minimumSizeY, newHeight)
 				set_position(Vector2(get_position().x, initialPosition.y - (newHeight - initialSize.y)))
 			
-			send_to_front()
 			set_size(Vector2(newWidth, newHeight))
 			var rect = get_global_rect()
 			HitBox.polygon = [Vector2(rect.position.x,rect.position.y),
 						Vector2(rect.position.x, rect.position.y + newHeight),
 						Vector2(rect.position.x+newWidth, rect.position.y + newHeight),
 						Vector2(rect.position.x+newWidth,rect.position.y)]
-			get_parent().make_terrain()
+			update_position()
 		
 	if Input.is_action_just_released("LeftMouseDown"):
 		isMoving = false
