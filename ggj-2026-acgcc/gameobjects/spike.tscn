@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://crpllc83d04sg"]
 
 [ext_resource type="Script" uid="uid://cd7apgjk31nur" path="res://Scripts/deathzone.gd" id="1_7k7bx"]
-[ext_resource type="Texture2D" uid="uid://b470qmavsnm0o" path="res://Assets/spike_basic.png" id="1_8ryga"]
+[ext_resource type="Texture2D" uid="uid://dkkxmsi1q0k0l" path="res://Assets/textures/spikes.png" id="2_ojfo2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7k7bx"]
 size = Vector2(32, 19)
@@ -16,6 +16,8 @@ position = Vector2(0, 6.5)
 shape = SubResource("RectangleShape2D_7k7bx")
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=1527283098]
-texture = ExtResource("1_8ryga")
+position = Vector2(0, -4.985)
+scale = Vector2(0.019, 0.049)
+texture = ExtResource("2_ojfo2")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
