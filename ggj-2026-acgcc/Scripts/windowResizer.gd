@@ -20,6 +20,8 @@ var initialSize : Vector2
 
 @export var CanBeResized := true
 @export var CanBeMoved := true
+@export var CanBeClosed := true
+@export var ReorderWindow := true
 
 @export var moverTop : detectMouse
 @export var resizerTop : detectMouse
@@ -54,7 +56,8 @@ func update_position():
 				Vector2(rect.position.x, rect.position.y + height),
 				Vector2(rect.position.x+width, rect.position.y + height),
 				Vector2(rect.position.x+width,rect.position.y)]
-	get_parent().move_child(self, -2)
+	if ReorderWindow:
+		get_parent().move_child(self, -2)
 	get_parent().make_terrain()
 
 func initialize_resizers():
@@ -212,7 +215,8 @@ func delete_self():
 	self.queue_free()
 
 func _on_close_button_pressed() -> void:
-	delete_self()
+	if CanBeClosed:
+		delete_self()
 	
 func set_text(newText):
 	Text.text = newText
