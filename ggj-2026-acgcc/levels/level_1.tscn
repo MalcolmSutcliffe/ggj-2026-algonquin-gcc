@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://di3uh3a84fwg6"]
 
 [ext_resource type="Script" uid="uid://b5it2a8vwxrj1" path="res://levels/level.gd" id="1_bt44k"]
-[ext_resource type="Script" uid="uid://dwqdqya8bwmai" path="res://terrain.gd" id="2_btoec"]
-[ext_resource type="PackedScene" uid="uid://crpllc83d04sg" path="res://spike.tscn" id="3_bt44k"]
+[ext_resource type="Script" uid="uid://dwqdqya8bwmai" path="res://Scripts/terrain.gd" id="2_btoec"]
+[ext_resource type="PackedScene" uid="uid://crpllc83d04sg" path="res://gameobjects/spike.tscn" id="3_bt44k"]
 [ext_resource type="Texture2D" uid="uid://bcg3l63owe63e" path="res://Assets/textures/Ground.png" id="3_btoec"]
-[ext_resource type="PackedScene" uid="uid://bmlf7b76py1yh" path="res://clippy.tscn" id="4_gwceb"]
-[ext_resource type="Script" uid="uid://cd7apgjk31nur" path="res://deathzone.gd" id="6_btoec"]
+[ext_resource type="PackedScene" uid="uid://bmlf7b76py1yh" path="res://gameobjects/clippy.tscn" id="4_gwceb"]
+[ext_resource type="Script" uid="uid://cd7apgjk31nur" path="res://Scripts/deathzone.gd" id="6_btoec"]
 [ext_resource type="Texture2D" uid="uid://b7si07opylwt5" path="res://Assets/textures/istockphoto-1204024766-612x612.jpg" id="7_gwceb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gwceb"]
@@ -38,11 +38,6 @@ polygon = PackedVector2Array(6, 405, 0, 500, 1280, 500, 1275, 410)
 
 [node name="BorderLeft" type="Area2D" parent="." unique_id=354246826 groups=["terrain"]]
 script = ExtResource("2_btoec")
-
-[node name="Sprite2D" type="Sprite2D" parent="BorderLeft" unique_id=1033871360]
-position = Vector2(640, 553.105)
-scale = Vector2(3.375, 0.825)
-texture = ExtResource("3_btoec")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BorderLeft" unique_id=281647097]
 polygon = PackedVector2Array(-105, 4, -106, 482, -5, 476, -2, 4)

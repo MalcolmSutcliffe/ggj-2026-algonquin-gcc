@@ -1,6 +1,6 @@
 extends Node2D
 
-const PLAYER = preload("res://player.tscn")
+const PLAYER = preload("res://gameobjects/player.tscn")
 var playerInstance = null
 
 signal player_spawned

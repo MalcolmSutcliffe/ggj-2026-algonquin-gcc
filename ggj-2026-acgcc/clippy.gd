@@ -1,7 +1,7 @@
 extends Node2D
 
-var window = preload("res://windows.tscn")
-var negative_window = preload("res://negative_window.tscn")
+var window = preload("res://gameobjects/windows.tscn")
+var negative_window = preload("res://gameobjects/negative_window.tscn")
 
 var currentWindow = null
 var playerInstance = null

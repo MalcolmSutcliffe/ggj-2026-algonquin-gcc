@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cedr4vo4xfnuv"]
+
+[ext_resource type="Script" uid="uid://dufhri5lr14bt" path="res://level_warp.gd" id="1_nbpm7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v541w"]
+
+[node name="LevelWarp" type="Node2D" unique_id=1347689075]
+script = ExtResource("1_nbpm7")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=589663938]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=684570050]
+shape = SubResource("RectangleShape2D_v541w")
