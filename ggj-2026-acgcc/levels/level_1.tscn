@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://dwqdqya8bwmai" path="res://terrain.gd" id="2_btoec"]
 [ext_resource type="PackedScene" uid="uid://crpllc83d04sg" path="res://spike.tscn" id="3_bt44k"]
 [ext_resource type="Texture2D" uid="uid://bcg3l63owe63e" path="res://Assets/textures/Ground.png" id="3_btoec"]
-[ext_resource type="PackedScene" path="res://clippy.tscn" id="4_gwceb"]
+[ext_resource type="PackedScene" uid="uid://bmlf7b76py1yh" path="res://clippy.tscn" id="4_gwceb"]
 
 [node name="Level1" type="Node2D" unique_id=473524130 node_paths=PackedStringArray("terrain_poly")]
 script = ExtResource("1_bt44k")
