@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cgmauoeu276d6"]
+[gd_scene format=3 uid="uid://bjkrj5fbn81gi"]
 
 [ext_resource type="Script" uid="uid://b5it2a8vwxrj1" path="res://levels/level.gd" id="1_8l0e1"]
 [ext_resource type="Texture2D" uid="uid://c6tdc3exqn8d7" path="res://Assets/textures/backround.png" id="2_ofchu"]
@@ -19,7 +19,7 @@ next_level = 2
 spawnpoint = Vector2(100, 300)
 terrain_poly = NodePath("ProgramaticTerrain/CollisionPolygon2D")
 
-[node name="Background" type="Sprite2D" parent="." unique_id=22063499]
+[node name="Background" type="Sprite2D" parent="." unique_id=1860207273]
 position = Vector2(640, 245)
 scale = Vector2(0.738, 0.45)
 texture = ExtResource("2_ofchu")
