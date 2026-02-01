@@ -3,7 +3,8 @@
 [ext_resource type="Script" uid="uid://b5it2a8vwxrj1" path="res://levels/level.gd" id="1_ilhis"]
 [ext_resource type="Texture2D" uid="uid://c6tdc3exqn8d7" path="res://Assets/textures/backround.png" id="2_ilhis"]
 [ext_resource type="Script" uid="uid://dwqdqya8bwmai" path="res://Scripts/terrain.gd" id="3_dfjjl"]
-[ext_resource type="Texture2D" uid="uid://bcg3l63owe63e" path="res://Assets/textures/Ground.png" id="4_at1ld"]
+[ext_resource type="Texture2D" uid="uid://mcrjjt1uj5vt" path="res://Assets/textures/dirt.001.png" id="4_dfjjl"]
+[ext_resource type="Texture2D" uid="uid://ocsf0o1a6asa" path="res://Assets/textures/grass.0001.png" id="5_at1ld"]
 [ext_resource type="Texture2D" uid="uid://c2x24kxqc5ixb" path="res://Assets/textures/columns.png" id="5_ep78u"]
 [ext_resource type="PackedScene" uid="uid://dpqu1k2lnf45i" path="res://gameobjects/negative_clippy.tscn" id="6_ilhis"]
 [ext_resource type="Script" uid="uid://cd7apgjk31nur" path="res://Scripts/deathzone.gd" id="6_vm7no"]
@@ -29,15 +30,29 @@ texture = ExtResource("2_ilhis")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ProgramaticTerrain" unique_id=1512809455]
 
-[node name="Floor" type="Area2D" parent="." unique_id=1599674329 groups=["terrain"]]
+[node name="Floor" type="Area2D" parent="." unique_id=1110069353 groups=["terrain"]]
 script = ExtResource("3_dfjjl")
 
-[node name="Sprite2D" type="Sprite2D" parent="Floor" unique_id=1366653550]
-position = Vector2(640, 553.105)
-scale = Vector2(3.375, 0.825)
-texture = ExtResource("4_at1ld")
+[node name="Wall" type="Sprite2D" parent="Floor" unique_id=549470038]
+position = Vector2(175, 968)
+rotation = 1.5707964
+texture = ExtResource("4_dfjjl")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Floor" unique_id=464241268]
+[node name="Wall" type="Sprite2D" parent="Floor/Wall" unique_id=1030827682]
+position = Vector2(0, -495)
+texture = ExtResource("4_dfjjl")
+
+[node name="Wall" type="Sprite2D" parent="Floor/Wall/Wall" unique_id=1577504327]
+position = Vector2(0, -495)
+texture = ExtResource("4_dfjjl")
+
+[node name="Grass" type="Sprite2D" parent="Floor" unique_id=259819715]
+position = Vector2(639.99994, 416)
+scale = Vector2(1.34, 0.87)
+skew = 0.7853982
+texture = ExtResource("5_at1ld")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Floor" unique_id=1522268374]
 polygon = PackedVector2Array(0, 410, 0, 720, 1280, 720, 1280, 410)
 
 [node name="BorderLeft" type="Area2D" parent="." unique_id=354246826 groups=["terrain"]]
@@ -53,8 +68,8 @@ script = ExtResource("3_dfjjl")
 polygon = PackedVector2Array(550, 0, 550, 720, 700, 720, 700, -1)
 
 [node name="Sprite2D" type="Sprite2D" parent="MiddlePillar" unique_id=8499715]
-position = Vector2(623.99994, 183)
-scale = Vector2(0.270238, 0.2973958)
+position = Vector2(624, 187.24998)
+scale = Vector2(0.270238, 0.31171876)
 texture = ExtResource("5_ep78u")
 
 [node name="DeathBarrier" type="Area2D" parent="." unique_id=887324845]
