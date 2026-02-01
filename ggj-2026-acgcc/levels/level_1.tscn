@@ -9,7 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://b7si07opylwt5" path="res://Assets/textures/istockphoto-1204024766-612x612.jpg" id="7_gwceb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gwceb"]
-size = Vector2(2179, 71)
+size = Vector2(1680, 90)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l53as"]
+size = Vector2(200, 720)
 
 [node name="Level1" type="Node2D" unique_id=473524130 node_paths=PackedStringArray("terrain_poly")]
 script = ExtResource("1_bt44k")
@@ -34,13 +37,13 @@ scale = Vector2(3.375, 0.825)
 texture = ExtResource("3_btoec")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Floor" unique_id=464241268]
-polygon = PackedVector2Array(6, 405, 0, 500, 1280, 500, 1275, 410)
+polygon = PackedVector2Array(0, 410, 0, 720, 1280, 720, 1280, 410)
 
 [node name="BorderLeft" type="Area2D" parent="." unique_id=354246826 groups=["terrain"]]
 script = ExtResource("2_btoec")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BorderLeft" unique_id=281647097]
-polygon = PackedVector2Array(-105, 4, -106, 482, -5, 476, -2, 4)
+polygon = PackedVector2Array(-200, 0, -200, 720, 0, 720, 0, 0)
 
 [node name="Spikes" type="Node" parent="." unique_id=702890268]
 
@@ -63,11 +66,19 @@ scale = Vector2(2, 2)
 [node name="Clippy" parent="." unique_id=753832323 instance=ExtResource("4_gwceb")]
 position = Vector2(1118, 511)
 
-[node name="deathbarrier" type="Area2D" parent="." unique_id=887324845]
+[node name="DeathBarrier" type="Area2D" parent="." unique_id=887324845]
 script = ExtResource("6_btoec")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="deathbarrier" unique_id=435176084]
-position = Vector2(605.5, 774.5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathBarrier" unique_id=435176084]
+position = Vector2(640, 765)
 shape = SubResource("RectangleShape2D_gwceb")
 
-[connection signal="body_entered" from="deathbarrier" to="deathbarrier" method="_on_area_2d_body_entered"]
+[node name="LevelTransition" type="Area2D" parent="." unique_id=2106309653]
+script = ExtResource("6_btoec")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelTransition" unique_id=660143728]
+position = Vector2(1380, 360)
+shape = SubResource("RectangleShape2D_l53as")
+
+[connection signal="body_entered" from="DeathBarrier" to="DeathBarrier" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="LevelTransition" to="." method="_on_level_transition_body_entered"]

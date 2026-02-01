@@ -3,6 +3,9 @@ extends Node2D
 const PLAYER = preload("res://gameobjects/player.tscn")
 var playerInstance = null
 
+const next_level = "res://levels/level_2.tscn"
+var next_level_to_load = load(next_level)
+
 signal player_spawned
 
 @export var spawnpoint : Vector2
@@ -72,3 +75,12 @@ func make_terrain():
 	
 	# set collision shape to the level terrain
 	set_terrain(level_terrain)
+
+# here is level changing functionality, any time this is triggered it'll load next_level
+func _on_level_transition_body_entered(body: Node2D) -> void:
+	if body is Player:
+		body.position = Vector2.ZERO # Set the player's position to the default spawn point
+		var new_node = next_level_to_load.instantiate()
+		queue_free()
+		# idk why this gives an error if it's not deferred
+		get_parent().call_deferred("add_child", new_node)
