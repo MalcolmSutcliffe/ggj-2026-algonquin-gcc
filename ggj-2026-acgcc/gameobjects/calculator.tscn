@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dkeb67uda46vv"]
+
+[ext_resource type="PackedScene" uid="uid://yp5wj0qi5iwf" path="res://gameobjects/windows.tscn" id="1_73qet"]
+
+[node name="Calculator" type="Node2D" unique_id=1853070094]
+
+[node name="Label" type="Label" parent="." unique_id=726401798]
+offset_left = 30.0
+offset_top = 11.0
+offset_right = 182.0
+offset_bottom = 37.0
+text = "Calculator"
+
+[node name="GridContainer" type="GridContainer" parent="." unique_id=370700203]
+offset_left = 28.0
+offset_top = 120.0
+offset_right = 225.0
+offset_bottom = 364.0
+columns = 3
+
+[node name="Window" parent="." unique_id=1494559892 instance=ExtResource("1_73qet")]
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 253.0
+offset_bottom = 403.0
+minimumSizeY = 400
+CanBeResized = false
+CanBeMoved = false
