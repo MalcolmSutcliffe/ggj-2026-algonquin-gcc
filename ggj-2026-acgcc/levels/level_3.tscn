@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://b5it2a8vwxrj1" path="res://levels/level.gd" id="1_8l0e1"]
 [ext_resource type="Texture2D" uid="uid://c6tdc3exqn8d7" path="res://Assets/textures/backround.png" id="2_ofchu"]
 [ext_resource type="Script" uid="uid://dwqdqya8bwmai" path="res://Scripts/terrain.gd" id="3_ofchu"]
-[ext_resource type="Texture2D" uid="uid://bcg3l63owe63e" path="res://Assets/textures/Ground.png" id="4_jq78i"]
-[ext_resource type="PackedScene" uid="uid://crpllc83d04sg" path="res://gameobjects/spike.tscn" id="5_lsnkt"]
+[ext_resource type="Texture2D" uid="uid://mcrjjt1uj5vt" path="res://Assets/textures/dirt.001.png" id="5_8l0e1"]
+[ext_resource type="Texture2D" uid="uid://ocsf0o1a6asa" path="res://Assets/textures/grass.0001.png" id="6_lfnxh"]
 [ext_resource type="Script" uid="uid://cd7apgjk31nur" path="res://Scripts/deathzone.gd" id="6_wj73x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gwceb"]
@@ -28,51 +28,11 @@ texture = ExtResource("2_ofchu")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ProgramaticTerrain" unique_id=1512809455]
 
-[node name="Floor" type="Area2D" parent="." unique_id=1599674329 groups=["terrain"]]
-script = ExtResource("3_ofchu")
-
-[node name="Sprite2D" type="Sprite2D" parent="Floor" unique_id=1366653550]
-position = Vector2(640, 635)
-scale = Vector2(3.375, 0.825)
-texture = ExtResource("4_jq78i")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Floor" unique_id=464241268]
-polygon = PackedVector2Array(0, 500, 0, 720, 1280, 720, 1280, 500)
-
-[node name="FloorUp" type="Area2D" parent="." unique_id=816895610 groups=["terrain"]]
-script = ExtResource("3_ofchu")
-
-[node name="Sprite2D" type="Sprite2D" parent="FloorUp" unique_id=1796861366]
-position = Vector2(1591, 447)
-scale = Vector2(3.375, 0.825)
-texture = ExtResource("4_jq78i")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FloorUp" unique_id=1145738669]
-polygon = PackedVector2Array(885, 272, 882, 619, 1949, 619, 1970, 276)
-
 [node name="BorderLeft" type="Area2D" parent="." unique_id=354246826 groups=["terrain"]]
 script = ExtResource("3_ofchu")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BorderLeft" unique_id=281647097]
 polygon = PackedVector2Array(-200, 0, -200, 720, 0, 720, 0, 0)
-
-[node name="Spikes" type="Node" parent="." unique_id=702890268]
-
-[node name="Spike" parent="Spikes" unique_id=1162273504 instance=ExtResource("5_lsnkt")]
-position = Vector2(656, 470)
-scale = Vector2(2, 2)
-
-[node name="Spike2" parent="Spikes" unique_id=2088340093 instance=ExtResource("5_lsnkt")]
-position = Vector2(720, 470)
-scale = Vector2(2, 2)
-
-[node name="Spike3" parent="Spikes" unique_id=519704176 instance=ExtResource("5_lsnkt")]
-position = Vector2(784, 470)
-scale = Vector2(2, 2)
-
-[node name="Spike4" parent="Spikes" unique_id=258453386 instance=ExtResource("5_lsnkt")]
-position = Vector2(848, 470)
-scale = Vector2(2, 2)
 
 [node name="DeathBarrier" type="Area2D" parent="." unique_id=887324845]
 script = ExtResource("6_wj73x")
@@ -87,6 +47,31 @@ script = ExtResource("6_wj73x")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelTransition" unique_id=660143728]
 position = Vector2(1380, 360)
 shape = SubResource("RectangleShape2D_l53as")
+
+[node name="Floor" type="Area2D" parent="." unique_id=167201117 groups=["terrain"]]
+script = ExtResource("3_ofchu")
+
+[node name="Wall" type="Sprite2D" parent="Floor" unique_id=208052202]
+position = Vector2(175, 1081.0627)
+rotation = 1.5707964
+texture = ExtResource("5_8l0e1")
+
+[node name="Wall" type="Sprite2D" parent="Floor/Wall" unique_id=844140295]
+position = Vector2(0, -495)
+texture = ExtResource("5_8l0e1")
+
+[node name="Wall" type="Sprite2D" parent="Floor/Wall/Wall" unique_id=1573394080]
+position = Vector2(0, -495)
+texture = ExtResource("5_8l0e1")
+
+[node name="Grass" type="Sprite2D" parent="Floor" unique_id=865625181]
+position = Vector2(639.99994, 529.0628)
+scale = Vector2(1.34, 0.87)
+skew = 0.7853982
+texture = ExtResource("6_lfnxh")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Floor" unique_id=1521566292]
+polygon = PackedVector2Array(0, 525, 0, 720, 1280, 720, 1280, 530)
 
 [connection signal="body_entered" from="DeathBarrier" to="DeathBarrier" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="LevelTransition" to="." method="_on_level_transition_body_entered"]

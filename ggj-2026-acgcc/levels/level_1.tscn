@@ -4,10 +4,10 @@
 [ext_resource type="Script" uid="uid://dwqdqya8bwmai" path="res://Scripts/terrain.gd" id="2_btoec"]
 [ext_resource type="Texture2D" uid="uid://c6tdc3exqn8d7" path="res://Assets/textures/backround.png" id="2_gwceb"]
 [ext_resource type="PackedScene" uid="uid://crpllc83d04sg" path="res://gameobjects/spike.tscn" id="3_bt44k"]
-[ext_resource type="Texture2D" uid="uid://bcg3l63owe63e" path="res://Assets/textures/Ground.png" id="3_btoec"]
+[ext_resource type="Texture2D" uid="uid://mcrjjt1uj5vt" path="res://Assets/textures/dirt.001.png" id="4_3sk1a"]
 [ext_resource type="PackedScene" uid="uid://bmlf7b76py1yh" path="res://gameobjects/clippy.tscn" id="4_gwceb"]
+[ext_resource type="Texture2D" uid="uid://ocsf0o1a6asa" path="res://Assets/textures/grass.0001.png" id="4_l53as"]
 [ext_resource type="Script" uid="uid://cd7apgjk31nur" path="res://Scripts/deathzone.gd" id="6_btoec"]
-[ext_resource type="Texture2D" uid="uid://b7si07opylwt5" path="res://Assets/textures/istockphoto-1204024766-612x612.jpg" id="7_gwceb"]
 [ext_resource type="Texture2D" uid="uid://bhhej1yi5xqft" path="res://icon.svg" id="8_l53as"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gwceb"]
@@ -34,10 +34,24 @@ texture = ExtResource("2_gwceb")
 [node name="Floor" type="Area2D" parent="." unique_id=1599674329 groups=["terrain"]]
 script = ExtResource("2_btoec")
 
-[node name="Sprite2D" type="Sprite2D" parent="Floor" unique_id=1366653550]
-position = Vector2(640, 553.105)
-scale = Vector2(3.375, 0.825)
-texture = ExtResource("3_btoec")
+[node name="Wall" type="Sprite2D" parent="Floor" unique_id=371506724]
+position = Vector2(175, 968)
+rotation = 1.5707964
+texture = ExtResource("4_3sk1a")
+
+[node name="Wall" type="Sprite2D" parent="Floor/Wall" unique_id=1465746444]
+position = Vector2(0, -495)
+texture = ExtResource("4_3sk1a")
+
+[node name="Wall" type="Sprite2D" parent="Floor/Wall/Wall" unique_id=543682910]
+position = Vector2(0, -495)
+texture = ExtResource("4_3sk1a")
+
+[node name="Grass" type="Sprite2D" parent="Floor" unique_id=1366653550]
+position = Vector2(639.99994, 416)
+scale = Vector2(1.34, 0.87)
+skew = 0.7853982
+texture = ExtResource("4_l53as")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Floor" unique_id=464241268]
 polygon = PackedVector2Array(0, 410, 0, 720, 1280, 720, 1280, 410)
