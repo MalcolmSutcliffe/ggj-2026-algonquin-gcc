@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://g8rcyjxeupny" path="res://detectMouse.gd" id="3_tk8mp"]
 [ext_resource type="Texture2D" uid="uid://c81atj4a0yc3x" path="res://Assets/close_button.png" id="4_h2k2t"]
 
-[node name="NegativeWindow" type="Control" unique_id=1494559892 node_paths=PackedStringArray("HitBox", "moverTop", "resizerTop", "resizerLeft", "resizerRight", "resizerBottom", "resizerBottomLeft", "resizerBottomRight", "resizerTopLeft", "resizerTopRight") groups=["negative", "terrain"]]
+[node name="NegativeWindow" type="Control" unique_id=1494559892 node_paths=PackedStringArray("HitBox", "Text", "moverTop", "resizerTop", "resizerLeft", "resizerRight", "resizerBottom", "resizerBottomLeft", "resizerBottomRight", "resizerTopLeft", "resizerTopRight") groups=["negative", "terrain"]]
 z_index = 1
 layout_mode = 3
 anchors_preset = 0
@@ -16,8 +16,9 @@ offset_bottom = 573.0
 script = ExtResource("1_ctkpc")
 isNegative = true
 HitBox = NodePath("Area2D/CollisionPolygon2D")
-minimumSizeY = 200
-minimumSizeX = 450
+Text = NodePath("RichTextLabel")
+minimumSizeY = 150
+minimumSizeX = 250
 moverTop = NodePath("Mover")
 resizerTop = NodePath("ResizerTop")
 resizerLeft = NodePath("ResizerLeft")
@@ -29,6 +30,7 @@ resizerTopLeft = NodePath("ResizerTopLeft")
 resizerTopRight = NodePath("ResizerTopRight")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=746533988]
+modulate = Color(1, 1, 1, 0.7294118)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -42,6 +44,24 @@ patch_margin_right = 129
 patch_margin_bottom = 9
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1422729982]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 48.0
+offset_right = -20.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(1, 1, 1, 0.81960785)
+fit_content = true
+scroll_active = false
+autowrap_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Mover" type="Control" parent="." unique_id=1573837325]
 layout_mode = 1

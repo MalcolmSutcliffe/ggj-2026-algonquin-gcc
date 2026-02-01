@@ -22,14 +22,14 @@ func spawn_player():
 		return
 	playerInstance = PLAYER.instantiate()
 	playerInstance.player_died.connect(_on_player_died)
+	playerInstance.position = spawnpoint
 	call_deferred("add_child", playerInstance)
 	player_spawned.emit()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	make_terrain()
-	spawn_player()
-	playerInstance.player_died.connect(_on_player_died) 
+	spawn_player() 
 	pass # Replace with function body.
 
 
