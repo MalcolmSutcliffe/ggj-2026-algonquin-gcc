@@ -11,6 +11,7 @@ var initialSize : Vector2
 @export var isNegative: bool
 
 @export var HitBox : CollisionPolygon2D
+@export var Text : RichTextLabel
 
 @export var minimumSizeY : int
 @export var minimumSizeX : int
@@ -209,6 +210,9 @@ func _on_close_button_pressed() -> void:
 	update_position()
 	self.queue_free()
 	
+
+func set_text(newText):
+	Text.text = newText
 
 func get_polygon():
 	return HitBox.polygon

@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://di3uh3a84fwg6"]
 
 [ext_resource type="Script" uid="uid://b5it2a8vwxrj1" path="res://levels/level.gd" id="1_bt44k"]
-[ext_resource type="Script" path="res://terrain.gd" id="2_btoec"]
+[ext_resource type="Script" uid="uid://dwqdqya8bwmai" path="res://terrain.gd" id="2_btoec"]
 [ext_resource type="PackedScene" uid="uid://yp5wj0qi5iwf" path="res://windows.tscn" id="2_jirdo"]
 [ext_resource type="PackedScene" uid="uid://crpllc83d04sg" path="res://spike.tscn" id="3_bt44k"]
 [ext_resource type="Texture2D" uid="uid://bcg3l63owe63e" path="res://Assets/textures/Ground.png" id="3_btoec"]
-[ext_resource type="PackedScene" path="res://negative_window.tscn" id="5_n46q3"]
+[ext_resource type="PackedScene" uid="uid://b157rp60jwtik" path="res://negative_window.tscn" id="5_n46q3"]
 
 [node name="Level1" type="Node2D" unique_id=473524130 node_paths=PackedStringArray("terrain_poly")]
 script = ExtResource("1_bt44k")

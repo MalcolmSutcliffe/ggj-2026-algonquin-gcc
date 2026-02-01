@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c81atj4a0yc3x" path="res://Assets/close_button.png" id="4_h2k2t"]
 
 [node name="NegativeWindow" type="Control" unique_id=1494559892 node_paths=PackedStringArray("HitBox", "moverTop", "resizerTop", "resizerLeft", "resizerRight", "resizerBottom", "resizerBottomLeft", "resizerBottomRight", "resizerTopLeft", "resizerTopRight") groups=["negative", "terrain"]]
+z_index = 1
 layout_mode = 3
 anchors_preset = 0
 offset_left = 384.0
