@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b6slpcwbplri4"]
 
 [ext_resource type="Script" uid="uid://b5it2a8vwxrj1" path="res://levels/level.gd" id="1_ilhis"]
-[ext_resource type="Texture2D" uid="uid://b7si07opylwt5" path="res://Assets/textures/istockphoto-1204024766-612x612.jpg" id="2_ep78u"]
+[ext_resource type="Texture2D" uid="uid://c6tdc3exqn8d7" path="res://Assets/textures/backround.png" id="2_ilhis"]
 [ext_resource type="Script" uid="uid://dwqdqya8bwmai" path="res://Scripts/terrain.gd" id="3_dfjjl"]
 [ext_resource type="Texture2D" uid="uid://bcg3l63owe63e" path="res://Assets/textures/Ground.png" id="4_at1ld"]
 [ext_resource type="PackedScene" uid="uid://dpqu1k2lnf45i" path="res://gameobjects/negative_clippy.tscn" id="6_ilhis"]
@@ -19,10 +19,10 @@ next_level = 3
 spawnpoint = Vector2(100, 300)
 terrain_poly = NodePath("ProgramaticTerrain/CollisionPolygon2D")
 
-[node name="Background" type="Sprite2D" parent="." unique_id=2113721183]
+[node name="Background" type="Sprite2D" parent="." unique_id=1242819545]
 position = Vector2(640, 245)
-scale = Vector2(2.102941, 1.2821783)
-texture = ExtResource("2_ep78u")
+scale = Vector2(0.738, 0.45)
+texture = ExtResource("2_ilhis")
 
 [node name="ProgramaticTerrain" type="StaticBody2D" parent="." unique_id=1614055626]
 
