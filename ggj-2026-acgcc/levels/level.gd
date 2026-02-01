@@ -85,3 +85,7 @@ func _on_level_transition_body_entered(body: Node2D) -> void:
 		queue_free()
 		# idk why this gives an error if it's not deferred
 		get_parent().call_deferred("add_child", new_node)
+
+func _on_exit_level_pressed() -> void:
+	queue_free()
+	get_parent().get_node("Menu").visible = true

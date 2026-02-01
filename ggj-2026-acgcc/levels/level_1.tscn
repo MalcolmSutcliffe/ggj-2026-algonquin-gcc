@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bmlf7b76py1yh" path="res://gameobjects/clippy.tscn" id="4_gwceb"]
 [ext_resource type="Script" uid="uid://cd7apgjk31nur" path="res://Scripts/deathzone.gd" id="6_btoec"]
 [ext_resource type="Texture2D" uid="uid://b7si07opylwt5" path="res://Assets/textures/istockphoto-1204024766-612x612.jpg" id="7_gwceb"]
+[ext_resource type="Texture2D" uid="uid://bhhej1yi5xqft" path="res://icon.svg" id="8_l53as"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gwceb"]
 size = Vector2(1680, 90)
@@ -81,5 +82,12 @@ shape = SubResource("RectangleShape2D_l53as")
 [node name="Clippy" parent="." unique_id=753832323 instance=ExtResource("4_gwceb")]
 position = Vector2(1200, 325)
 
+[node name="ExitLevel" type="Button" parent="." unique_id=823067765]
+offset_right = 136.0
+offset_bottom = 136.0
+scale = Vector2(0.5, 0.5)
+icon = ExtResource("8_l53as")
+
 [connection signal="body_entered" from="DeathBarrier" to="DeathBarrier" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="LevelTransition" to="." method="_on_level_transition_body_entered"]
+[connection signal="pressed" from="ExitLevel" to="." method="_on_exit_level_pressed"]
