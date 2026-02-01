@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cyux5ygw42ol5"]
 
 [ext_resource type="Script" uid="uid://chsg25yg64jut" path="res://Scripts/menu.gd" id="1_5ul53"]
+[ext_resource type="Texture2D" uid="uid://c6tdc3exqn8d7" path="res://Assets/textures/backround.png" id="2_68odg"]
 [ext_resource type="Script" uid="uid://clla0lrdopf5d" path="res://Scripts/level_select.gd" id="2_xokg8"]
 
 [node name="Main" type="Node" unique_id=1648551162]
@@ -12,12 +13,18 @@ offset_right = 1280.0
 offset_bottom = 720.0
 script = ExtResource("1_5ul53")
 
+[node name="Background" type="Sprite2D" parent="Menu" unique_id=2017552821]
+position = Vector2(640, 366)
+scale = Vector2(0.738, 0.67407405)
+texture = ExtResource("2_68odg")
+
 [node name="Label" type="Label" parent="Menu" unique_id=514078063]
 layout_mode = 0
+offset_top = 166.0
 offset_right = 1280.0
-offset_bottom = 90.0
+offset_bottom = 275.0
 theme_override_font_sizes/font_size = 64
-text = "Game Title"
+text = "Window Surfer"
 horizontal_alignment = 1
 
 [node name="MainMenu" type="Control" parent="Menu" unique_id=1833235980]
@@ -28,9 +35,9 @@ offset_bottom = 720.0
 [node name="VBoxContainer" type="VBoxContainer" parent="Menu/MainMenu" unique_id=724515500]
 layout_mode = 0
 offset_left = 480.0
-offset_top = 90.0
+offset_top = 142.0
 offset_right = 800.0
-offset_bottom = 720.0
+offset_bottom = 772.0
 theme_override_constants/separation = 32
 alignment = 1
 
@@ -54,8 +61,9 @@ text = "Exit
 [node name="LevelSelect" type="Control" parent="Menu" unique_id=1710013221]
 visible = false
 anchors_preset = 0
+offset_top = 54.0
 offset_right = 1280.0
-offset_bottom = 720.0
+offset_bottom = 774.0
 script = ExtResource("2_xokg8")
 
 [node name="HBoxContainer" type="VBoxContainer" parent="Menu/LevelSelect" unique_id=689066357]

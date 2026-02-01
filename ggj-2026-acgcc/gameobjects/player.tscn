@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dn23roqpeaeo8" path="res://Scripts/player.gd" id="1_onrkg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sbf66"]
-size = Vector2(36, 148)
+size = Vector2(36, 173)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4flbx"]
 load_path = "res://.godot/imported/sprite_sheet.png-853827357462ba95dd51b6cd58c9baab.ctex"
@@ -103,7 +103,7 @@ z_index = 2
 script = ExtResource("1_onrkg")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=1138913615]
-position = Vector2(1, -44)
+position = Vector2(1, -56.5)
 shape = SubResource("RectangleShape2D_sbf66")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1264983730]
