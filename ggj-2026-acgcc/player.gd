@@ -32,9 +32,13 @@ func move_horizontal(delta: float):
 	velocity.x = direction*speed*delta
 	
 	if direction < 0:
-		$Sprite2D.flip_h = true
+		$AnimationPlayer.play("Walk_Left")
+	elif direction == 0:
+		$AnimationPlayer.play("Idle_Right")
 	elif direction > 0:
-		$Sprite2D.flip_h = false
+		$AnimationPlayer.play("Walk_Right")
+	elif direction == 0:
+		$AnimationPlayer.play("Idle_Left")
 
 func die():
 	get_parent().respawn_player()
