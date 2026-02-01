@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://mcrjjt1uj5vt" path="res://Assets/textures/dirt.001.png" id="5_8l0e1"]
 [ext_resource type="Texture2D" uid="uid://ocsf0o1a6asa" path="res://Assets/textures/grass.0001.png" id="6_lfnxh"]
 [ext_resource type="Script" uid="uid://cd7apgjk31nur" path="res://Scripts/deathzone.gd" id="6_wj73x"]
+[ext_resource type="PackedScene" uid="uid://b157rp60jwtik" path="res://gameobjects/negative_window.tscn" id="7_ofchu"]
+[ext_resource type="PackedScene" uid="uid://yp5wj0qi5iwf" path="res://gameobjects/windows.tscn" id="8_jq78i"]
+[ext_resource type="Texture2D" uid="uid://c2x24kxqc5ixb" path="res://Assets/textures/columns.png" id="9_jq78i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gwceb"]
 size = Vector2(1680, 90)
@@ -20,8 +23,8 @@ spawnpoint = Vector2(100, 300)
 terrain_poly = NodePath("ProgramaticTerrain/CollisionPolygon2D")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1860207273]
-position = Vector2(640, 245)
-scale = Vector2(0.738, 0.45)
+position = Vector2(640, 353.00003)
+scale = Vector2(0.738, 0.65000004)
 texture = ExtResource("2_ofchu")
 
 [node name="ProgramaticTerrain" type="StaticBody2D" parent="." unique_id=1614055626]
@@ -52,26 +55,66 @@ shape = SubResource("RectangleShape2D_l53as")
 script = ExtResource("3_ofchu")
 
 [node name="Wall" type="Sprite2D" parent="Floor" unique_id=208052202]
-position = Vector2(175, 1081.0627)
+position = Vector2(139, 1081.0627)
 rotation = 1.5707964
 texture = ExtResource("5_8l0e1")
 
-[node name="Wall" type="Sprite2D" parent="Floor/Wall" unique_id=844140295]
-position = Vector2(0, -495)
-texture = ExtResource("5_8l0e1")
-
-[node name="Wall" type="Sprite2D" parent="Floor/Wall/Wall" unique_id=1573394080]
-position = Vector2(0, -495)
-texture = ExtResource("5_8l0e1")
-
 [node name="Grass" type="Sprite2D" parent="Floor" unique_id=865625181]
-position = Vector2(639.99994, 529.0628)
-scale = Vector2(1.34, 0.87)
+position = Vector2(175.42862, 529.0628)
+scale = Vector2(0.5029467, 0.87)
 skew = 0.7853982
 texture = ExtResource("6_lfnxh")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Floor" unique_id=1521566292]
-polygon = PackedVector2Array(0, 525, 0, 720, 1280, 720, 1280, 530)
+polygon = PackedVector2Array(0, 525, 0, 1019, 427, 1028, 424, 530)
+
+[node name="Wall2" type="Sprite2D" parent="Floor" unique_id=1660500716]
+modulate = Color(0.5194127, 0.5194127, 0.5194127, 1)
+position = Vector2(431.00003, 1052)
+rotation = 1.5707964
+scale = Vector2(1.020589, 0.22334637)
+skew = -0.7853982
+texture = ExtResource("5_8l0e1")
+
+[node name="Floor2" type="Area2D" parent="." unique_id=1646737449 groups=["terrain"]]
+script = ExtResource("3_ofchu")
+
+[node name="Wall" type="Sprite2D" parent="Floor2" unique_id=1877359827]
+position = Vector2(1107.1428, 1081.0627)
+rotation = 1.5707964
+texture = ExtResource("5_8l0e1")
+
+[node name="Grass" type="Sprite2D" parent="Floor2" unique_id=1096947108]
+position = Vector2(1151.5715, 529.0628)
+scale = Vector2(0.5029467, 0.87)
+skew = 0.7853982
+texture = ExtResource("6_lfnxh")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Floor2" unique_id=1421267898]
+polygon = PackedVector2Array(899, 528, 903, 1025, 1289, 1006, 1295, 529)
+
+[node name="NegativeWindow" parent="." unique_id=1494559892 instance=ExtResource("7_ofchu")]
+offset_left = 36.0
+offset_top = 87.0
+offset_right = 400.0
+offset_bottom = 331.0
+
+[node name="Window" parent="." unique_id=988208110 instance=ExtResource("8_jq78i")]
+offset_left = 845.0
+offset_top = 135.0
+offset_right = 1209.0
+offset_bottom = 379.0
+
+[node name="MiddlePillar" type="Area2D" parent="." unique_id=20525408 groups=["terrain"]]
+script = ExtResource("3_ofchu")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MiddlePillar" unique_id=1018626327]
+polygon = PackedVector2Array(550, 0, 550, 720, 700, 720, 700, -1)
+
+[node name="Sprite2D" type="Sprite2D" parent="MiddlePillar" unique_id=1951870000]
+position = Vector2(624, 325.49994)
+scale = Vector2(0.270238, 0.45572916)
+texture = ExtResource("9_jq78i")
 
 [connection signal="body_entered" from="DeathBarrier" to="DeathBarrier" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="LevelTransition" to="." method="_on_level_transition_body_entered"]
