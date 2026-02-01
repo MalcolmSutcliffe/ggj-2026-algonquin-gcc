@@ -212,7 +212,6 @@ func delete_self():
 func _on_close_button_pressed() -> void:
 	delete_self()
 	
-
 func set_text(newText):
 	Text.text = newText
 

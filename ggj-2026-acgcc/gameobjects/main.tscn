@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cyux5ygw42ol5"]
 
-[ext_resource type="Script" uid="uid://chsg25yg64jut" path="res://menu.gd" id="3_h2yge"]
-[ext_resource type="Script" uid="uid://clla0lrdopf5d" path="res://level_select.gd" id="4_1bvp3"]
+[ext_resource type="Script" uid="uid://chsg25yg64jut" path="res://Scripts/menu.gd" id="1_5ul53"]
+[ext_resource type="Script" uid="uid://clla0lrdopf5d" path="res://Scripts/level_select.gd" id="2_xokg8"]
 
 [node name="Main" type="Node" unique_id=1648551162]
 
@@ -10,7 +10,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 1280.0
 offset_bottom = 720.0
-script = ExtResource("3_h2yge")
+script = ExtResource("1_5ul53")
 
 [node name="Label" type="Label" parent="Menu" unique_id=514078063]
 layout_mode = 0
@@ -56,7 +56,7 @@ visible = false
 anchors_preset = 0
 offset_right = 1280.0
 offset_bottom = 720.0
-script = ExtResource("4_1bvp3")
+script = ExtResource("2_xokg8")
 
 [node name="HBoxContainer" type="VBoxContainer" parent="Menu/LevelSelect" unique_id=689066357]
 layout_mode = 0
@@ -140,4 +140,5 @@ text = "Back
 [connection signal="pressed" from="Menu/MainMenu/VBoxContainer/Options" to="Menu" method="_on_options_pressed"]
 [connection signal="pressed" from="Menu/MainMenu/VBoxContainer/Exit" to="Menu" method="_on_exit_pressed"]
 [connection signal="pressed" from="Menu/LevelSelect/HBoxContainer/VBoxContainer/1" to="Menu/LevelSelect" method="_on_1_pressed"]
+[connection signal="pressed" from="Menu/LevelSelect/HBoxContainer/VBoxContainer/2" to="Menu/LevelSelect" method="_on_2_pressed"]
 [connection signal="pressed" from="Menu/LevelSelect/Back" to="Menu/LevelSelect" method="_on_back_pressed"]
