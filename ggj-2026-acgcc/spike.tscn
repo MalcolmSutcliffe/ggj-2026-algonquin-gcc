@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://crpllc83d04sg"]
 
-[ext_resource type="Script" uid="uid://cd7apgjk31nur" path="res://spike.gd" id="1_7k7bx"]
+[ext_resource type="Script" uid="uid://cd7apgjk31nur" path="res://deathzone.gd" id="1_7k7bx"]
 [ext_resource type="Texture2D" uid="uid://b470qmavsnm0o" path="res://Assets/spike_basic.png" id="1_8ryga"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7k7bx"]
