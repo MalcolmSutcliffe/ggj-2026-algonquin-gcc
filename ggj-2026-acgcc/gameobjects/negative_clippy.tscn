@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dpqu1k2lnf45i"]
+
+[ext_resource type="Script" uid="uid://c5q4yjdvpxio" path="res://negative_clippy.gd" id="1_k5x37"]
+[ext_resource type="Texture2D" uid="uid://bbcd8x3ulk20c" path="res://Assets/negative_clippy.png" id="2_vy8o8"]
+
+[node name="NegativeClippy" type="Node2D" unique_id=753832323]
+script = ExtResource("1_k5x37")
+
+[node name="ClippySprite" type="Sprite2D" parent="." unique_id=64622155]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_vy8o8")
+
+[node name="Shadow" type="Sprite2D" parent="." unique_id=178207267]
+
+[node name="Button" type="Button" parent="." unique_id=1513962061]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -35.0
+offset_top = -57.0
+offset_right = 36.0
+offset_bottom = 51.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

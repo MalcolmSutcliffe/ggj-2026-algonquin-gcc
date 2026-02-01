@@ -3,8 +3,8 @@ extends Node2D
 const PLAYER = preload("res://gameobjects/player.tscn")
 var playerInstance = null
 
-const next_level = "res://levels/level_2.tscn"
-var next_level_to_load = load(next_level)
+@export var next_level : int
+var next_level_to_load
 
 signal player_spawned
 
@@ -31,6 +31,7 @@ func spawn_player():
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	next_level_to_load = load("res://levels/level_" + str(next_level) + ".tscn")
 	make_terrain()
 	spawn_player() 
 	pass # Replace with function body.
