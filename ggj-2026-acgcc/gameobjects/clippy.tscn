@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bmlf7b76py1yh"]
 
-[ext_resource type="Script" uid="uid://dmghpy573wniq" path="res://clippy.gd" id="1_efmc1"]
+[ext_resource type="Script" uid="uid://dmghpy573wniq" path="res://Scripts/clippy.gd" id="1_efmc1"]
 [ext_resource type="Texture2D" uid="uid://cmevkw0oognl3" path="res://Assets/clippy.png" id="2_qs21v"]
 
 [node name="Clippy" type="Node2D" unique_id=753832323]
@@ -12,16 +12,12 @@ texture = ExtResource("2_qs21v")
 
 [node name="Shadow" type="Sprite2D" parent="." unique_id=178207267]
 
-[node name="Button" type="Button" parent="." unique_id=1513962061]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="ExitLevel" type="Button" parent="." unique_id=838681072]
 offset_left = -35.0
 offset_top = -57.0
-offset_right = 36.0
-offset_bottom = 51.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 101.0
+offset_bottom = 165.0
+scale = Vector2(0.5, 0.5)
 flat = true
 
-[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="pressed" from="ExitLevel" to="." method="_on_button_button_pressed"]

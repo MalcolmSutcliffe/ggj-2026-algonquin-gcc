@@ -27,7 +27,7 @@ func _on_player_died():
 func _on_player_spawned():
 	get_parent().playerInstance.player_died.connect(_on_player_died)
 
-func _on_button_button_down() -> void:
+func _on_button_button_pressed() -> void:
 	if greetings_index == greetings.size()-1:
 		spawn_negative_window(greetings[greetings_index])
 	else:
