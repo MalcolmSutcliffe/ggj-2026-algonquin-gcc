@@ -1,0 +1,143 @@
+[gd_scene format=3 uid="uid://jg6sdi6eg3y1"]
+
+[ext_resource type="Script" path="res://menu.gd" id="3_h2yge"]
+[ext_resource type="Script" path="res://level_select.gd" id="4_1bvp3"]
+
+[node name="Main" type="Node" unique_id=1648551162]
+
+[node name="Menu" type="Control" parent="." unique_id=1210468457]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+script = ExtResource("3_h2yge")
+
+[node name="Label" type="Label" parent="Menu" unique_id=514078063]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 90.0
+theme_override_font_sizes/font_size = 64
+text = "Game Title"
+horizontal_alignment = 1
+
+[node name="MainMenu" type="Control" parent="Menu" unique_id=1833235980]
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/MainMenu" unique_id=724515500]
+layout_mode = 0
+offset_left = 480.0
+offset_top = 90.0
+offset_right = 800.0
+offset_bottom = 720.0
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="Play" type="Button" parent="Menu/MainMenu/VBoxContainer" unique_id=1767582173]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Play"
+
+[node name="Options" type="Button" parent="Menu/MainMenu/VBoxContainer" unique_id=1698941399]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Options"
+
+[node name="Exit" type="Button" parent="Menu/MainMenu/VBoxContainer" unique_id=1913476039]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Exit
+"
+
+[node name="LevelSelect" type="Control" parent="Menu" unique_id=1710013221]
+visible = false
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+script = ExtResource("4_1bvp3")
+
+[node name="HBoxContainer" type="VBoxContainer" parent="Menu/LevelSelect" unique_id=689066357]
+layout_mode = 0
+offset_top = 90.0
+offset_right = 1280.0
+offset_bottom = 720.0
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="VBoxContainer" type="HBoxContainer" parent="Menu/LevelSelect/HBoxContainer" unique_id=533752673]
+layout_mode = 2
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="1" type="Button" parent="Menu/LevelSelect/HBoxContainer/VBoxContainer" unique_id=917958996]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Level 1"
+
+[node name="2" type="Button" parent="Menu/LevelSelect/HBoxContainer/VBoxContainer" unique_id=793164587]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Level 2"
+
+[node name="3" type="Button" parent="Menu/LevelSelect/HBoxContainer/VBoxContainer" unique_id=1322278125]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Level 3"
+
+[node name="VBoxContainer2" type="HBoxContainer" parent="Menu/LevelSelect/HBoxContainer" unique_id=156099871]
+layout_mode = 2
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="4" type="Button" parent="Menu/LevelSelect/HBoxContainer/VBoxContainer2" unique_id=626725144]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Level 4"
+
+[node name="5" type="Button" parent="Menu/LevelSelect/HBoxContainer/VBoxContainer2" unique_id=153697743]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Level 5"
+
+[node name="6" type="Button" parent="Menu/LevelSelect/HBoxContainer/VBoxContainer2" unique_id=2013235907]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Level 6"
+
+[node name="VBoxContainer3" type="HBoxContainer" parent="Menu/LevelSelect/HBoxContainer" unique_id=227774325]
+layout_mode = 2
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="7" type="Button" parent="Menu/LevelSelect/HBoxContainer/VBoxContainer3" unique_id=835538748]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Level 7"
+
+[node name="8" type="Button" parent="Menu/LevelSelect/HBoxContainer/VBoxContainer3" unique_id=1647076964]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Level 8"
+
+[node name="9" type="Button" parent="Menu/LevelSelect/HBoxContainer/VBoxContainer3" unique_id=1228160391]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Level 9"
+
+[node name="Back" type="Button" parent="Menu/LevelSelect" unique_id=1597729142]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 657.0
+offset_right = 76.0
+offset_bottom = 710.0
+theme_override_font_sizes/font_size = 32
+text = "Back
+"
+
+[connection signal="pressed" from="Menu/MainMenu/VBoxContainer/Play" to="Menu" method="_on_play_pressed"]
+[connection signal="pressed" from="Menu/MainMenu/VBoxContainer/Options" to="Menu" method="_on_options_pressed"]
+[connection signal="pressed" from="Menu/MainMenu/VBoxContainer/Exit" to="Menu" method="_on_exit_pressed"]
+[connection signal="pressed" from="Menu/LevelSelect/HBoxContainer/VBoxContainer/1" to="Menu/LevelSelect" method="_on_1_pressed"]
+[connection signal="pressed" from="Menu/LevelSelect/Back" to="Menu/LevelSelect" method="_on_back_pressed"]
