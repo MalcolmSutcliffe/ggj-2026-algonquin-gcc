@@ -141,4 +141,5 @@ text = "Back
 [connection signal="pressed" from="Menu/MainMenu/VBoxContainer/Exit" to="Menu" method="_on_exit_pressed"]
 [connection signal="pressed" from="Menu/LevelSelect/HBoxContainer/VBoxContainer/1" to="Menu/LevelSelect" method="_on_1_pressed"]
 [connection signal="pressed" from="Menu/LevelSelect/HBoxContainer/VBoxContainer/2" to="Menu/LevelSelect" method="_on_2_pressed"]
+[connection signal="pressed" from="Menu/LevelSelect/HBoxContainer/VBoxContainer/3" to="Menu/LevelSelect" method="_on_3_pressed"]
 [connection signal="pressed" from="Menu/LevelSelect/Back" to="Menu/LevelSelect" method="_on_back_pressed"]
