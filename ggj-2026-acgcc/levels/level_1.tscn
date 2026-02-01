@@ -78,7 +78,7 @@ position = Vector2(1380, 360)
 shape = SubResource("RectangleShape2D_l53as")
 
 [node name="Clippy" parent="." unique_id=753832323 instance=ExtResource("4_gwceb")]
-position = Vector2(1118, 511)
+position = Vector2(1200, 325)
 
 [connection signal="body_entered" from="DeathBarrier" to="DeathBarrier" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="LevelTransition" to="." method="_on_level_transition_body_entered"]
