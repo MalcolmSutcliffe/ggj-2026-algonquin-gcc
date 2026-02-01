@@ -28,25 +28,28 @@ visible = false
 polygon = PackedVector2Array(0, 380, 0, 720, 1280, 720, 1280, 380)
 
 [node name="Window" parent="." unique_id=1494559892 instance=ExtResource("2_jirdo")]
+CanBeResized = false
 
-[node name="NegativeWindow" parent="." unique_id=755408403 instance=ExtResource("5_n46q3")]
-offset_left = 797.0
-offset_top = 116.0
-offset_right = 1161.0
-offset_bottom = 360.0
+[node name="NegativeWindow" parent="." unique_id=1082721838 instance=ExtResource("5_n46q3")]
+offset_left = 590.0
+offset_top = 67.0
+offset_right = 954.0
+offset_bottom = 311.0
 
-[node name="Spike" parent="." unique_id=1162273504 instance=ExtResource("3_bt44k")]
-position = Vector2(693, 553)
+[node name="Spikes" type="Node" parent="." unique_id=702890268]
+
+[node name="Spike" parent="Spikes" unique_id=1162273504 instance=ExtResource("3_bt44k")]
+position = Vector2(652, 349)
 scale = Vector2(2, 2)
 
-[node name="Spike2" parent="." unique_id=2088340093 instance=ExtResource("3_bt44k")]
-position = Vector2(757, 553)
+[node name="Spike2" parent="Spikes" unique_id=2088340093 instance=ExtResource("3_bt44k")]
+position = Vector2(716, 349)
 scale = Vector2(2, 2)
 
-[node name="Spike3" parent="." unique_id=519704176 instance=ExtResource("3_bt44k")]
-position = Vector2(821, 553)
+[node name="Spike3" parent="Spikes" unique_id=519704176 instance=ExtResource("3_bt44k")]
+position = Vector2(780, 349)
 scale = Vector2(2, 2)
 
-[node name="Spike4" parent="." unique_id=258453386 instance=ExtResource("3_bt44k")]
-position = Vector2(885, 553)
+[node name="Spike4" parent="Spikes" unique_id=258453386 instance=ExtResource("3_bt44k")]
+position = Vector2(844, 349)
 scale = Vector2(2, 2)
