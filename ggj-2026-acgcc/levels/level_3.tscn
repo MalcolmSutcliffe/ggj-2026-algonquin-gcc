@@ -39,6 +39,17 @@ texture = ExtResource("4_jq78i")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Floor" unique_id=464241268]
 polygon = PackedVector2Array(0, 500, 0, 720, 1280, 720, 1280, 500)
 
+[node name="FloorUp" type="Area2D" parent="." unique_id=816895610 groups=["terrain"]]
+script = ExtResource("3_ofchu")
+
+[node name="Sprite2D" type="Sprite2D" parent="FloorUp" unique_id=1796861366]
+position = Vector2(1591, 447)
+scale = Vector2(3.375, 0.825)
+texture = ExtResource("4_jq78i")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FloorUp" unique_id=1145738669]
+polygon = PackedVector2Array(885, 272, 882, 619, 1949, 619, 1970, 276)
+
 [node name="BorderLeft" type="Area2D" parent="." unique_id=354246826 groups=["terrain"]]
 script = ExtResource("3_ofchu")
 
