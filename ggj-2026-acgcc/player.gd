@@ -3,6 +3,8 @@ extends CharacterBody2D
 @export var speed = 10000
 @export var jump_strength = 500
 
+signal player_died
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	get_parent().move_child(self, -1)
@@ -37,4 +39,4 @@ func move_horizontal(delta: float):
 		$Sprite2D.flip_h = false
 
 func die():
-	get_parent().respawn_player()
+	player_died.emit()
