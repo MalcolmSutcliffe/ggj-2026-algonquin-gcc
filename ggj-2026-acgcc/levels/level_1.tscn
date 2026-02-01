@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://cd7apgjk31nur" path="res://deathzone.gd" id="6_btoec"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gwceb"]
-size = Vector2(1837, 71)
+size = Vector2(2179, 71)
 
 [node name="Level1" type="Node2D" unique_id=473524130 node_paths=PackedStringArray("terrain_poly")]
 script = ExtResource("1_bt44k")
@@ -62,11 +62,11 @@ scale = Vector2(2, 2)
 [node name="Clippy" parent="." unique_id=753832323 instance=ExtResource("4_gwceb")]
 position = Vector2(1118, 511)
 
-[node name="Offscreendeathzone" type="Area2D" parent="." unique_id=887324845]
+[node name="deathbarrier" type="Area2D" parent="." unique_id=887324845]
 script = ExtResource("6_btoec")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Offscreendeathzone" unique_id=435176084]
-position = Vector2(776.5, 774.5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="deathbarrier" unique_id=435176084]
+position = Vector2(605.5, 774.5)
 shape = SubResource("RectangleShape2D_gwceb")
 
-[connection signal="body_entered" from="Offscreendeathzone" to="Offscreendeathzone" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="deathbarrier" to="deathbarrier" method="_on_area_2d_body_entered"]
