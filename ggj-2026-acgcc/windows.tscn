@@ -5,7 +5,8 @@
 [ext_resource type="Script" uid="uid://g8rcyjxeupny" path="res://detectMouse.gd" id="2_dkob1"]
 [ext_resource type="Texture2D" uid="uid://c81atj4a0yc3x" path="res://Assets/close_button.png" id="4_pxnrm"]
 
-[node name="Window" type="Control" unique_id=1494559892 node_paths=PackedStringArray("HitBox", "moverTop", "resizerTop", "resizerLeft", "resizerRight", "resizerBottom", "resizerBottomLeft", "resizerBottomRight", "resizerTopLeft", "resizerTopRight") groups=["terrain"]]
+[node name="Window" type="Control" unique_id=1494559892 node_paths=PackedStringArray("HitBox", "Text", "moverTop", "resizerTop", "resizerLeft", "resizerRight", "resizerBottom", "resizerBottomLeft", "resizerBottomRight", "resizerTopLeft", "resizerTopRight") groups=["terrain"]]
+z_index = 1
 layout_mode = 3
 anchors_preset = 0
 offset_left = 384.0
@@ -14,8 +15,9 @@ offset_right = 748.0
 offset_bottom = 573.0
 script = ExtResource("1_22j4m")
 HitBox = NodePath("Area2D/CollisionPolygon2D")
-minimumSizeY = 200
-minimumSizeX = 450
+Text = NodePath("RichTextLabel")
+minimumSizeY = 150
+minimumSizeX = 250
 moverTop = NodePath("Mover")
 resizerTop = NodePath("ResizerTop")
 resizerLeft = NodePath("ResizerLeft")
@@ -34,22 +36,39 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_13e0b")
-region_rect = Rect2(0, 0, 953, 1037)
-patch_margin_left = 60
-patch_margin_top = 78
-patch_margin_right = 200
-patch_margin_bottom = 12
+patch_margin_left = 63
+patch_margin_top = 50
+patch_margin_right = 129
+patch_margin_bottom = 9
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1289923955]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 48.0
+offset_right = -20.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+fit_content = true
+scroll_active = false
+autowrap_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Mover" type="Control" parent="." unique_id=968527687]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_left = 69.0
-offset_top = 8.0
-offset_right = -206.0
-offset_bottom = 71.0
+offset_left = 35.0
+offset_top = 6.0
+offset_right = -109.0
+offset_bottom = 40.0
 grow_horizontal = 2
 mouse_default_cursor_shape = 6
 script = ExtResource("2_dkob1")
@@ -165,10 +184,10 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -82.0
-offset_top = 5.0
-offset_right = -9.0
-offset_bottom = 75.0
+offset_left = -44.0
+offset_top = -3.0
+offset_right = -3.0
+offset_bottom = 46.0
 grow_horizontal = 0
 mouse_default_cursor_shape = 2
 keep_pressed_outside = true

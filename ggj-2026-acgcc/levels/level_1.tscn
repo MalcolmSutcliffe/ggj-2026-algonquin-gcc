@@ -1,11 +1,10 @@
 [gd_scene format=3 uid="uid://di3uh3a84fwg6"]
 
 [ext_resource type="Script" uid="uid://b5it2a8vwxrj1" path="res://levels/level.gd" id="1_bt44k"]
-[ext_resource type="Script" path="res://terrain.gd" id="2_btoec"]
-[ext_resource type="PackedScene" uid="uid://yp5wj0qi5iwf" path="res://windows.tscn" id="2_jirdo"]
+[ext_resource type="Script" uid="uid://dwqdqya8bwmai" path="res://terrain.gd" id="2_btoec"]
 [ext_resource type="PackedScene" uid="uid://crpllc83d04sg" path="res://spike.tscn" id="3_bt44k"]
 [ext_resource type="Texture2D" uid="uid://bcg3l63owe63e" path="res://Assets/textures/Ground.png" id="3_btoec"]
-[ext_resource type="PackedScene" path="res://negative_window.tscn" id="5_n46q3"]
+[ext_resource type="PackedScene" uid="uid://bmlf7b76py1yh" path="res://clippy.tscn" id="4_gwceb"]
 
 [node name="Level1" type="Node2D" unique_id=473524130 node_paths=PackedStringArray("terrain_poly")]
 script = ExtResource("1_bt44k")
@@ -26,29 +25,23 @@ texture = ExtResource("3_btoec")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Floor" unique_id=464241268]
 polygon = PackedVector2Array(6, 405, 0, 720, 1280, 720, 1275, 410)
 
-[node name="Window" parent="." unique_id=1494559892 instance=ExtResource("2_jirdo")]
-CanBeResized = false
-
-[node name="NegativeWindow" parent="." unique_id=1082721838 instance=ExtResource("5_n46q3")]
-offset_left = 590.0
-offset_top = 67.0
-offset_right = 954.0
-offset_bottom = 311.0
-
 [node name="Spikes" type="Node" parent="." unique_id=702890268]
 
 [node name="Spike" parent="Spikes" unique_id=1162273504 instance=ExtResource("3_bt44k")]
-position = Vector2(652, 349)
+position = Vector2(656, 380)
 scale = Vector2(2, 2)
 
 [node name="Spike2" parent="Spikes" unique_id=2088340093 instance=ExtResource("3_bt44k")]
-position = Vector2(716, 349)
+position = Vector2(720, 380)
 scale = Vector2(2, 2)
 
 [node name="Spike3" parent="Spikes" unique_id=519704176 instance=ExtResource("3_bt44k")]
-position = Vector2(780, 349)
+position = Vector2(784, 380)
 scale = Vector2(2, 2)
 
 [node name="Spike4" parent="Spikes" unique_id=258453386 instance=ExtResource("3_bt44k")]
-position = Vector2(844, 349)
+position = Vector2(848, 380)
 scale = Vector2(2, 2)
+
+[node name="Clippy" parent="." unique_id=753832323 instance=ExtResource("4_gwceb")]
+position = Vector2(1118, 511)

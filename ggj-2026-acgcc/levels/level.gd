@@ -3,25 +3,33 @@ extends Node2D
 const PLAYER = preload("res://player.tscn")
 var playerInstance = null
 
+signal player_spawned
+
 @export var spawnpoint : Vector2
 @export var terrain_poly : CollisionPolygon2D
+
+func _on_player_died():
+	respawn_player()
 
 func respawn_player():
 	if playerInstance != null:
 		playerInstance.queue_free()
 		playerInstance = null
 	spawn_player()
-
+	
 func spawn_player():
 	if playerInstance != null:
 		return
 	playerInstance = PLAYER.instantiate()
+	playerInstance.player_died.connect(_on_player_died)
 	call_deferred("add_child", playerInstance)
+	player_spawned.emit()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	make_terrain()
 	spawn_player()
+	playerInstance.player_died.connect(_on_player_died) 
 	pass # Replace with function body.
 
 
@@ -36,7 +44,6 @@ func set_terrain(new_poly):
 		var new_poly_instance = CollisionPolygon2D.new()
 		new_poly_instance.polygon = poly
 		$ProgramaticTerrain.add_child(new_poly_instance)
-
 
 func make_terrain():
 	pass
