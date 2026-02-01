@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c2x24kxqc5ixb" path="res://Assets/textures/columns.png" id="5_ep78u"]
 [ext_resource type="PackedScene" uid="uid://dpqu1k2lnf45i" path="res://gameobjects/negative_clippy.tscn" id="6_ilhis"]
 [ext_resource type="Script" uid="uid://cd7apgjk31nur" path="res://Scripts/deathzone.gd" id="6_vm7no"]
+[ext_resource type="Texture2D" uid="uid://bhhej1yi5xqft" path="res://icon.svg" id="9_at1ld"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gwceb"]
 size = Vector2(1680, 90)
@@ -89,5 +90,12 @@ shape = SubResource("RectangleShape2D_l53as")
 [node name="NegativeClippy" parent="." unique_id=753832323 instance=ExtResource("6_ilhis")]
 position = Vector2(1200, 325)
 
+[node name="ExitLevel" type="Button" parent="." unique_id=1338954736]
+offset_right = 136.0
+offset_bottom = 136.0
+scale = Vector2(0.5, 0.5)
+icon = ExtResource("9_at1ld")
+
 [connection signal="body_entered" from="DeathBarrier" to="DeathBarrier" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="LevelTransition" to="." method="_on_level_transition_body_entered"]
+[connection signal="pressed" from="ExitLevel" to="." method="_on_exit_level_pressed"]

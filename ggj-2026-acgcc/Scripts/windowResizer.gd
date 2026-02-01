@@ -1,4 +1,6 @@
-extends Control 
+extends Control
+
+class_name WindowResizer
 
 var start : Vector2
 var initialPosition : Vector2

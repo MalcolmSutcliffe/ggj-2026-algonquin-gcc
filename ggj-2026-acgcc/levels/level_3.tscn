@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b157rp60jwtik" path="res://gameobjects/negative_window.tscn" id="7_ofchu"]
 [ext_resource type="PackedScene" uid="uid://yp5wj0qi5iwf" path="res://gameobjects/windows.tscn" id="8_jq78i"]
 [ext_resource type="Texture2D" uid="uid://c2x24kxqc5ixb" path="res://Assets/textures/columns.png" id="9_jq78i"]
+[ext_resource type="Texture2D" uid="uid://bhhej1yi5xqft" path="res://icon.svg" id="10_lsnkt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gwceb"]
 size = Vector2(1680, 90)
@@ -18,7 +19,7 @@ size = Vector2(200, 720)
 
 [node name="Level3" type="Node2D" unique_id=473524130 node_paths=PackedStringArray("terrain_poly")]
 script = ExtResource("1_8l0e1")
-next_level = 2
+next_level = 4
 spawnpoint = Vector2(100, 300)
 terrain_poly = NodePath("ProgramaticTerrain/CollisionPolygon2D")
 
@@ -116,5 +117,12 @@ position = Vector2(624, 325.49994)
 scale = Vector2(0.270238, 0.45572916)
 texture = ExtResource("9_jq78i")
 
+[node name="ExitLevel" type="Button" parent="." unique_id=577901135]
+offset_right = 136.0
+offset_bottom = 136.0
+scale = Vector2(0.5, 0.5)
+icon = ExtResource("10_lsnkt")
+
 [connection signal="body_entered" from="DeathBarrier" to="DeathBarrier" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="LevelTransition" to="." method="_on_level_transition_body_entered"]
+[connection signal="pressed" from="ExitLevel" to="." method="_on_exit_level_pressed"]
