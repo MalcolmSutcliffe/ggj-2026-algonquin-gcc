@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c6tdc3exqn8d7" path="res://Assets/textures/backround.png" id="2_ilhis"]
 [ext_resource type="Script" uid="uid://dwqdqya8bwmai" path="res://Scripts/terrain.gd" id="3_dfjjl"]
 [ext_resource type="Texture2D" uid="uid://bcg3l63owe63e" path="res://Assets/textures/Ground.png" id="4_at1ld"]
+[ext_resource type="Texture2D" uid="uid://c2x24kxqc5ixb" path="res://Assets/textures/columns.png" id="5_ep78u"]
 [ext_resource type="PackedScene" uid="uid://dpqu1k2lnf45i" path="res://gameobjects/negative_clippy.tscn" id="6_ilhis"]
 [ext_resource type="Script" uid="uid://cd7apgjk31nur" path="res://Scripts/deathzone.gd" id="6_vm7no"]
 
@@ -50,6 +51,11 @@ script = ExtResource("3_dfjjl")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MiddlePillar" unique_id=1275019146]
 polygon = PackedVector2Array(550, 0, 550, 720, 700, 720, 700, -1)
+
+[node name="Sprite2D" type="Sprite2D" parent="MiddlePillar" unique_id=8499715]
+position = Vector2(623.99994, 183)
+scale = Vector2(0.270238, 0.2973958)
+texture = ExtResource("5_ep78u")
 
 [node name="DeathBarrier" type="Area2D" parent="." unique_id=887324845]
 script = ExtResource("6_vm7no")
