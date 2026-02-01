@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://bv4qtrpox13nx"]
+
+[ext_resource type="Script" uid="uid://b5it2a8vwxrj1" path="res://levels/level.gd" id="1_ldpug"]
+[ext_resource type="Texture2D" uid="uid://c6tdc3exqn8d7" path="res://Assets/textures/backround.png" id="2_8vr3t"]
+[ext_resource type="Script" uid="uid://dwqdqya8bwmai" path="res://Scripts/terrain.gd" id="3_a58qw"]
+[ext_resource type="Texture2D" uid="uid://cq0vovnoy7xbj" path="res://Assets/textures/menu.png" id="5_g5mgy"]
+[ext_resource type="PackedScene" uid="uid://yp5wj0qi5iwf" path="res://gameobjects/windows.tscn" id="6_1y5xd"]
+[ext_resource type="Script" uid="uid://cd7apgjk31nur" path="res://Scripts/deathzone.gd" id="6_gder6"]
+[ext_resource type="PackedScene" uid="uid://b157rp60jwtik" path="res://gameobjects/negative_window.tscn" id="8_p0827"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gwceb"]
+size = Vector2(1680, 90)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l53as"]
+size = Vector2(200, 720)
+
+[node name="Level5" type="Node2D" unique_id=473524130 node_paths=PackedStringArray("terrain_poly")]
+script = ExtResource("1_ldpug")
+next_level = 1
+spawnpoint = Vector2(100, 300)
+terrain_poly = NodePath("ProgramaticTerrain/CollisionPolygon2D")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=2113721183]
+position = Vector2(640, 361.5)
+scale = Vector2(0.738, 0.6657407)
+texture = ExtResource("2_8vr3t")
+
+[node name="ProgramaticTerrain" type="StaticBody2D" parent="." unique_id=1614055626]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ProgramaticTerrain" unique_id=1512809455]
+
+[node name="BorderLeft" type="Area2D" parent="." unique_id=354246826 groups=["terrain"]]
+script = ExtResource("3_a58qw")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BorderLeft" unique_id=281647097]
+polygon = PackedVector2Array(-200, 0, -200, 720, 0, 720, 0, 0)
+
+[node name="DeathBarrier" type="Area2D" parent="." unique_id=887324845]
+script = ExtResource("6_gder6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathBarrier" unique_id=435176084]
+position = Vector2(640, 765)
+shape = SubResource("RectangleShape2D_gwceb")
+
+[node name="LevelTransition" type="Area2D" parent="." unique_id=2106309653]
+script = ExtResource("6_gder6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelTransition" unique_id=660143728]
+position = Vector2(1380, 360)
+shape = SubResource("RectangleShape2D_l53as")
+
+[node name="ExitLevel" type="Button" parent="." unique_id=823067765]
+offset_right = 136.0
+offset_bottom = 136.0
+scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="ExitLevel" unique_id=100314542]
+position = Vector2(70, 74)
+scale = Vector2(0.13055556, 0.13055556)
+texture = ExtResource("5_g5mgy")
+
+[node name="Window" parent="." unique_id=1494559892 instance=ExtResource("6_1y5xd")]
+offset_left = -29.0
+offset_top = 542.0
+offset_right = 335.0
+offset_bottom = 786.0
+CanBeResized = false
+ReorderWindow = false
+
+[node name="NegativeWindow" parent="." unique_id=892107162 instance=ExtResource("8_p0827")]
+offset_left = 329.0
+offset_top = 130.0
+offset_right = 693.0
+offset_bottom = 374.0
+minimumSizeY = 1000
+minimumSizeX = 200
+CanBeResized = false
+CanBeMoved = false
+CanBeClosed = false
+
+[node name="NegativeWindow2" parent="." unique_id=1772737373 instance=ExtResource("8_p0827")]
+offset_left = 874.0
+offset_top = 1.0
+offset_right = 1238.0
+offset_bottom = 245.0
+minimumSizeY = 600
+minimumSizeX = 200
+CanBeResized = false
+CanBeMoved = false
+CanBeClosed = false
+
+[connection signal="body_entered" from="DeathBarrier" to="DeathBarrier" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="LevelTransition" to="." method="_on_level_transition_body_entered"]
+[connection signal="pressed" from="ExitLevel" to="." method="_on_exit_level_pressed"]
