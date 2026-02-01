@@ -204,11 +204,13 @@ func _input(event):
 		resizeY = false
 		isResizing = false
 
-
-func _on_close_button_pressed() -> void:
+func delete_self():
 	set_size(Vector2.ZERO)
 	update_position()
 	self.queue_free()
+
+func _on_close_button_pressed() -> void:
+	delete_self()
 	
 
 func set_text(newText):

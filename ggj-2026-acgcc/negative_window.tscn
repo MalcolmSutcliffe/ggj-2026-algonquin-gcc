@@ -28,8 +28,7 @@ resizerBottomRight = NodePath("ResizerBottomRight")
 resizerTopLeft = NodePath("ResizerTopLeft")
 resizerTopRight = NodePath("ResizerTopRight")
 
-[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1138651816]
-modulate = Color(1, 1, 1, 0.54901963)
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=746533988]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -37,22 +36,21 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_ctkpc")
-region_rect = Rect2(0, 0, 953, 1037)
-patch_margin_left = 60
-patch_margin_top = 78
-patch_margin_right = 200
-patch_margin_bottom = 12
+patch_margin_left = 63
+patch_margin_top = 50
+patch_margin_right = 129
+patch_margin_bottom = 9
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 
-[node name="Mover" type="Control" parent="." unique_id=968527687]
+[node name="Mover" type="Control" parent="." unique_id=1573837325]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_left = 69.0
-offset_top = 8.0
-offset_right = -206.0
-offset_bottom = 71.0
+offset_left = 35.0
+offset_top = 6.0
+offset_right = -109.0
+offset_bottom = 40.0
 grow_horizontal = 2
 mouse_default_cursor_shape = 6
 script = ExtResource("3_tk8mp")
@@ -163,15 +161,15 @@ grow_vertical = 0
 mouse_default_cursor_shape = 12
 script = ExtResource("3_tk8mp")
 
-[node name="CloseButton" type="Button" parent="." unique_id=1698947771]
+[node name="CloseButton" type="Button" parent="." unique_id=190606103]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -82.0
-offset_top = 5.0
-offset_right = -9.0
-offset_bottom = 75.0
+offset_left = -45.0
+offset_top = -4.0
+offset_right = -3.0
+offset_bottom = 46.0
 grow_horizontal = 0
 mouse_default_cursor_shape = 2
 keep_pressed_outside = true
@@ -185,5 +183,3 @@ visible = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=979417874]
 polygon = PackedVector2Array(0, 0, 0, 200, 450, 200, 450, 0)
-
-[connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]

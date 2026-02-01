@@ -28,19 +28,19 @@ polygon = PackedVector2Array(6, 405, 0, 720, 1280, 720, 1275, 410)
 [node name="Spikes" type="Node" parent="." unique_id=702890268]
 
 [node name="Spike" parent="Spikes" unique_id=1162273504 instance=ExtResource("3_bt44k")]
-position = Vector2(652, 349)
+position = Vector2(656, 380)
 scale = Vector2(2, 2)
 
 [node name="Spike2" parent="Spikes" unique_id=2088340093 instance=ExtResource("3_bt44k")]
-position = Vector2(716, 349)
+position = Vector2(720, 380)
 scale = Vector2(2, 2)
 
 [node name="Spike3" parent="Spikes" unique_id=519704176 instance=ExtResource("3_bt44k")]
-position = Vector2(780, 349)
+position = Vector2(784, 380)
 scale = Vector2(2, 2)
 
 [node name="Spike4" parent="Spikes" unique_id=258453386 instance=ExtResource("3_bt44k")]
-position = Vector2(844, 349)
+position = Vector2(848, 380)
 scale = Vector2(2, 2)
 
 [node name="Clippy" parent="." unique_id=753832323 instance=ExtResource("4_gwceb")]

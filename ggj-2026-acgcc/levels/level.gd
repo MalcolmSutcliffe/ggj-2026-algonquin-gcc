@@ -17,11 +17,11 @@ func respawn_player():
 		playerInstance = null
 	spawn_player()
 	
-
 func spawn_player():
 	if playerInstance != null:
 		return
 	playerInstance = PLAYER.instantiate()
+	playerInstance.player_died.connect(_on_player_died)
 	call_deferred("add_child", playerInstance)
 	player_spawned.emit()
 
@@ -44,7 +44,6 @@ func set_terrain(new_poly):
 		var new_poly_instance = CollisionPolygon2D.new()
 		new_poly_instance.polygon = poly
 		$ProgramaticTerrain.add_child(new_poly_instance)
-
 
 func make_terrain():
 	pass
