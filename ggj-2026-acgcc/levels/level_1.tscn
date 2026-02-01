@@ -16,6 +16,7 @@ size = Vector2(200, 720)
 
 [node name="Level1" type="Node2D" unique_id=473524130 node_paths=PackedStringArray("terrain_poly")]
 script = ExtResource("1_bt44k")
+next_level = 2
 spawnpoint = Vector2(100, 300)
 terrain_poly = NodePath("ProgramaticTerrain/CollisionPolygon2D")
 
