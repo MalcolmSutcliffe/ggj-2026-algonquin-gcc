@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bmlf7b76py1yh" path="res://gameobjects/clippy.tscn" id="4_gwceb"]
 [ext_resource type="Texture2D" uid="uid://ocsf0o1a6asa" path="res://Assets/textures/grass.0001.png" id="4_l53as"]
 [ext_resource type="Script" uid="uid://cd7apgjk31nur" path="res://Scripts/deathzone.gd" id="6_btoec"]
-[ext_resource type="Texture2D" uid="uid://bhhej1yi5xqft" path="res://icon.svg" id="8_l53as"]
+[ext_resource type="Texture2D" uid="uid://cq0vovnoy7xbj" path="res://Assets/textures/menu.png" id="9_3sk1a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gwceb"]
 size = Vector2(1680, 90)
@@ -101,7 +101,11 @@ position = Vector2(1200, 325)
 offset_right = 136.0
 offset_bottom = 136.0
 scale = Vector2(0.5, 0.5)
-icon = ExtResource("8_l53as")
+
+[node name="Sprite2D" type="Sprite2D" parent="ExitLevel" unique_id=452452536]
+position = Vector2(67, 72)
+scale = Vector2(0.12777776, 0.122222215)
+texture = ExtResource("9_3sk1a")
 
 [connection signal="body_entered" from="DeathBarrier" to="DeathBarrier" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="LevelTransition" to="." method="_on_level_transition_body_entered"]

@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://mcrjjt1uj5vt" path="res://Assets/textures/dirt.001.png" id="4_8hlpj"]
 [ext_resource type="Texture2D" uid="uid://ocsf0o1a6asa" path="res://Assets/textures/grass.0001.png" id="5_qhnv2"]
 [ext_resource type="Script" uid="uid://cd7apgjk31nur" path="res://Scripts/deathzone.gd" id="6_vru0x"]
-[ext_resource type="Texture2D" uid="uid://bhhej1yi5xqft" path="res://icon.svg" id="7_5oqfd"]
+[ext_resource type="Texture2D" uid="uid://cq0vovnoy7xbj" path="res://Assets/textures/menu.png" id="7_sc6c1"]
 [ext_resource type="PackedScene" uid="uid://b157rp60jwtik" path="res://gameobjects/negative_window.tscn" id="8_8mt0c"]
 [ext_resource type="Script" uid="uid://cxurxwuuj4ifo" path="res://gameobjects/negative_window_moving.gd" id="9_dp2yl"]
 
@@ -80,7 +80,11 @@ shape = SubResource("RectangleShape2D_l53as")
 offset_right = 136.0
 offset_bottom = 136.0
 scale = Vector2(0.5, 0.5)
-icon = ExtResource("7_5oqfd")
+
+[node name="Sprite2D" type="Sprite2D" parent="ExitLevel" unique_id=170644658]
+position = Vector2(70, 74)
+scale = Vector2(0.13055556, 0.13055556)
+texture = ExtResource("7_sc6c1")
 
 [node name="NegativeWindowMoving" parent="." unique_id=1494559892 instance=ExtResource("8_8mt0c")]
 script = ExtResource("9_dp2yl")
