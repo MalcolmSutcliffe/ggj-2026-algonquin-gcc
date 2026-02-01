@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b157rp60jwtik" path="res://gameobjects/negative_window.tscn" id="7_ofchu"]
 [ext_resource type="PackedScene" uid="uid://yp5wj0qi5iwf" path="res://gameobjects/windows.tscn" id="8_jq78i"]
 [ext_resource type="Texture2D" uid="uid://c2x24kxqc5ixb" path="res://Assets/textures/columns.png" id="9_jq78i"]
-[ext_resource type="Texture2D" uid="uid://bhhej1yi5xqft" path="res://icon.svg" id="10_lsnkt"]
+[ext_resource type="Texture2D" uid="uid://cq0vovnoy7xbj" path="res://Assets/textures/menu.png" id="10_lsnkt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gwceb"]
 size = Vector2(1680, 90)
@@ -121,7 +121,11 @@ texture = ExtResource("9_jq78i")
 offset_right = 136.0
 offset_bottom = 136.0
 scale = Vector2(0.5, 0.5)
-icon = ExtResource("10_lsnkt")
+
+[node name="Sprite2D" type="Sprite2D" parent="ExitLevel" unique_id=780298886]
+position = Vector2(68.5, 68.5)
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("10_lsnkt")
 
 [connection signal="body_entered" from="DeathBarrier" to="DeathBarrier" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="LevelTransition" to="." method="_on_level_transition_body_entered"]
